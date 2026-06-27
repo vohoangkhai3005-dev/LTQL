@@ -49,8 +49,8 @@ namespace WindowsFormsApplication1
                 //kn csdl
                 HAMXULY.Connect();
                 string TAIKHOANG = txtTDN.Text.Trim(), MATKHAU = txtMK.Text.Trim();
-                string sql1 = "SELECT * FROM NGUOIDUNG WHERE TAIKHOANG = '" + TAIKHOANG + "' AND MATKHAU = '" + MATKHAU + "'";
-                string sql2 = "SELECT * FROM NGUOIDUNG WHERE TAIKHOANG = '" + TAIKHOANG + "' AND MATKHAU != '" + MATKHAU + "'";
+                string sql1 = "SELECT * FROM TAIKHOAN WHERE TAIKHOANG = '" + TAIKHOANG + "' AND MATKHAU = '" + MATKHAU + "'";
+                string sql2 = "SELECT * FROM TAIKHOAN WHERE TAIKHOANG = '" + TAIKHOANG + "' AND MATKHAU != '" + MATKHAU + "'";
                 DataTable dtlg = new DataTable();
                 frmMain frmM = new frmMain();
 
@@ -59,11 +59,11 @@ namespace WindowsFormsApplication1
                 if (HAMXULY.Truyvan(sql1, dtlg))
                 {
                     string NHOMQUYEN = dtlg.Rows[0]["NHOM"].ToString().Trim();
+                    
                     string IDUSER = dtlg.Rows[0]["IDUSER"].ToString().Trim();
                     if (NHOMQUYEN == "Admin")
                     {
-                        frmM.Show();
-                        //frmM.MnHethong.Enabled = true;
+                        frmM.MnHethong.Enabled = true;
                         frmM.MnThemTK.Enabled = true;
                         frmM.MnDoiMK.Enabled = true;
 
@@ -73,6 +73,7 @@ namespace WindowsFormsApplication1
                         frmM.MnKH.Enabled = true;
                         frmM.MnNV.Enabled = true;
 
+                        frmM.MnHD.Enabled = true;
                         frmM.MnCTHD.Enabled = true;
 
                         frmM.MnTK.Enabled = true;
@@ -81,12 +82,17 @@ namespace WindowsFormsApplication1
                         frmM.MnTKHD.Enabled = true;
 
                         frmM.MnBC.Enabled = true;
-
                         frmM.MnTG.Enabled = true;
+
+                        // Kiểm tra sau khi đã bật
+                        MessageBox.Show(frmM.MnThemTK.Enabled.ToString());
+
+                        frmM.Show();
+                        this.Hide();
                     }
                     else
                     {
-                        string sql3 = "SELECT * FROM PHANQUEN WHERE IDUSER = '" + IDUSER + "'";
+                        string sql3 = "SELECT * FROM VAITRO WHERE IDUSER = '" + IDUSER + "'";
                         DataTable dtPQ = new DataTable();
 
                         if (HAMXULY.Truyvan(sql3, dtPQ))
@@ -141,6 +147,7 @@ namespace WindowsFormsApplication1
                                 }
                                 if (row["IDCN"].ToString().Trim() == "12")
                                 {
+
                                     frmM.MnTKMH.Enabled = true;
                                 }
                                 if (row["IDCN"].ToString().Trim() == "13")
@@ -164,14 +171,14 @@ namespace WindowsFormsApplication1
                 }
                 else if(HAMXULY.Truyvan(sql2,dtlg))
                 {
-                    MessageBox.Show("Tài khoản không tồn tại!", "Thông báo",
+                    MessageBox.Show("Bạn sai mật khẩu!", "Thông báo",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     txtTDN.Focus();
                     return;
                 }
                 else
                 {
-                    MessageBox.Show("Bạn sai mất khẩu!", "Thông báo",
+                    MessageBox.Show("Tài khoản không tồn tại!", "Thông báo",
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     txtMK.Focus();
                     return;

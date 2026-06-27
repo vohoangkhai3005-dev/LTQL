@@ -57,6 +57,11 @@ namespace WindowsFormsApplication1
              get { return Mnnv; }
              set { Mnnv = value; }
          }
+         public ToolStripMenuItem MnHD
+         {
+             get { return Mnhd; }
+             set { Mnhd = value; }
+         }
          public ToolStripMenuItem MnCTHD
          {
              get { return Mncthd; }
@@ -92,6 +97,7 @@ namespace WindowsFormsApplication1
              get { return Mntg; }
              set { Mntg = value; }
          }
+
         private void đổiMậtToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
