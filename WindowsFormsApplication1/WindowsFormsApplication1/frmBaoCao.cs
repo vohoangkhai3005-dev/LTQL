@@ -61,28 +61,72 @@ namespace WindowsFormsApplication1
 
             HAMXULY.Connect();
 
-            string sql =
-                @"SELECT HD.MAHD,
-                         HD.NGAYLAP,
-                         NV.TENNV,
-                         KH.TENKH,
-                         HD.TONGTIEN
-                FROM HOADON HD
-                INNER JOIN NHANVIEN NV
-                ON HD.MANV = NV.MANV
-                INNER JOIN KHACHHANG KH
-                ON HD.MAKH = KH.MAKH
-                WHERE HD.NGAYLAP BETWEEN '" +
-                dtpTuNgay.Value.ToString("yyyy-MM-dd") +
-                "' AND '" +
-                dtpDenNgay.Value.ToString("yyyy-MM-dd") + "'";
+            string sql = "";
 
-            if (HAMXULY.Truyvan(sql, dt))
+            if (rdoNgay.Checked)
             {
-                dgvDoanhThu.DataSource = dt;
-                TinhTongDoanhThu();
-
+                sql =
+                @"SELECT HD.MAHD,
+                 HD.NGAYLAP,
+                 NV.TENNV,
+                 KH.TENKH,
+                 HD.TONGTIEN
+          FROM HOADON HD
+          INNER JOIN NHANVIEN NV
+          ON HD.MANV = NV.MANV
+          INNER JOIN KHACHHANG KH
+          ON HD.MAKH = KH.MAKH
+          WHERE HD.NGAYLAP BETWEEN '" +
+                  dtpTuNgay.Value.ToString("yyyy-MM-dd") +
+                  "' AND '" +
+                  dtpDenNgay.Value.ToString("yyyy-MM-dd") + "'";
             }
+            else if (rdoThang.Checked)
+            {
+                sql =
+                @"SELECT HD.MAHD,
+                 HD.NGAYLAP,
+                 NV.TENNV,
+                 KH.TENKH,
+                 HD.TONGTIEN
+          FROM HOADON HD
+          INNER JOIN NHANVIEN NV
+          ON HD.MANV = NV.MANV
+          INNER JOIN KHACHHANG KH
+          ON HD.MAKH = KH.MAKH
+          WHERE MONTH(HD.NGAYLAP) = " + dtpTuNgay.Value.Month +
+                  " AND YEAR(HD.NGAYLAP) = " + dtpTuNgay.Value.Year;
+            }
+
+            // Thực hiện truy vấn
+            HAMXULY.Truyvan(sql, dt);
+
+            // Không có dữ liệu
+            if (dt.Rows.Count == 0)
+            {
+                MessageBox.Show("Không có dữ liệu trong khoảng thời gian này!",
+                                "Thông báo",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
+
+                dgvDoanhThu.DataSource = null;
+                lblTongDoanhThu.Text = "Tổng doanh thu: 0 VNĐ";
+                return;
+            }
+
+            // Có dữ liệu
+            dgvDoanhThu.DataSource = dt;
+
+            dgvDoanhThu.Columns[0].HeaderText = "Mã HĐ";
+            dgvDoanhThu.Columns[1].HeaderText = "Ngày lập";
+            dgvDoanhThu.Columns[2].HeaderText = "Nhân viên";
+            dgvDoanhThu.Columns[3].HeaderText = "Khách hàng";
+            dgvDoanhThu.Columns[4].HeaderText = "Tổng tiền";
+
+            dgvDoanhThu.EnableHeadersVisualStyles = false;
+            dgvDoanhThu.ColumnHeadersDefaultCellStyle.BackColor = Color.Cyan;
+
+            TinhTongDoanhThu();
         }
         private void TinhTongDoanhThu()
         {
@@ -175,6 +219,16 @@ namespace WindowsFormsApplication1
             {
                 dgvTopSanPham.DataSource = dt;
             }
+        }
+
+        private void dgvDoanhThu_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+            
+        }
+
+        private void dgvTopSanPham_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
         }
     }
 }
