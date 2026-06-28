@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace LTQL
+namespace WindowsFormsApplication1
 {
     public partial class frmDanhMuc : Form
     {
@@ -17,18 +17,26 @@ namespace LTQL
             InitializeComponent();
         }
 
-        private void frmDanhMuc_Load(object sender, EventArgs e)
+        private void btnThem_Click(object sender, EventArgs e)
         {
-            pnlDM.Enabled = false;
-            showDM();
+            pnlDM.Enabled = true;
+            dangThem = true;
+            btnThem.Enabled = false;
+            btnLuu.Enabled = true;
+            btnXoa.Enabled = false;
+            btnSua.Enabled = false;
 
+            txtMaDM.ResetText();
+            txtTenDM.ResetText();
+            txtMota.ResetText();
+            txtMaDM.Focus();
         }
         //Hàm kiểm tra thông tin
         private Boolean Kiemtrathongtin()
         {
-            if(txtMaDM.Text=="")
+            if (txtMaDM.Text == "")
             {
-                MessageBox.Show("Bạn chưa nhập mã danh mục", "Thông báo", 
+                MessageBox.Show("Bạn chưa nhập mã danh mục", "Thông báo",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
@@ -40,6 +48,29 @@ namespace LTQL
             }
             return true;
         }
+        //xử lý thêm
+        private void ThemDM()
+        {
+            if (Kiemtrathongtin())
+            {
+                HAMXULY.Connect();
+                string sqlInsert = "INSERT INTO DANHMUC(MaDanhMuc, TenDanhMuc, MoTa) " +
+                    "VALUES ('" + txtMaDM.Text +
+                    "','" + txtTenDM.Text +
+                    "','" + txtMota.Text + "')";
+                try
+                {
+                    HAMXULY.RunSQL(sqlInsert);
+                    MessageBox.Show("Bạn đã thêm thành công 1 danh mục: ", txtTenDM.Text);
+                    showDM();
+                }
+                catch (Exception exx)
+                {
+                    MessageBox.Show(exx.Message);
+                }
+            }
+        }
+
         private void dgvDM_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
@@ -51,8 +82,12 @@ namespace LTQL
             txtMaDM.Text = dgvDM.CurrentRow.Cells["MaDanhMuc"].Value.ToString();
             txtTenDM.Text = dgvDM.CurrentRow.Cells["TenDanhMuc"].Value.ToString();
             txtMota.Text = dgvDM.CurrentRow.Cells["Mota"].Value.ToString();
+        }
 
-            
+        private void frmDanhMuc_Load(object sender, EventArgs e)
+        {
+            pnlDM.Enabled = false;
+            showDM();
         }
         private void showDM()
         {
@@ -75,46 +110,9 @@ namespace LTQL
                 dgvDM.ColumnHeadersHeight = 40;
                 dgvDM.RowsDefaultCellStyle.BackColor = Color.White;
                 dgvDM.AlternatingRowsDefaultCellStyle.BackColor = Color.Gainsboro;
-            }    
+            }
         }
         private bool dangThem = false;
-        private void btnThem_Click(object sender, EventArgs e)
-        {
-            pnlDM.Enabled = true;
-            dangThem = true;
-            btnThem.Enabled = false;
-            btnLuu.Enabled = true;
-            btnXoa.Enabled = false;
-            btnSua.Enabled = false;
-
-            txtMaDM.ResetText();
-            txtTenDM.ResetText();
-            txtMota.ResetText();
-            txtMaDM.Focus();
-        }
-       
-        //xử lý thêm
-        private void ThemDM()
-        {
-            if(Kiemtrathongtin())
-            {
-                HAMXULY.Connect();
-                string sqlInsert = "INSERT INTO DANHMUC(MaDanhMuc, TenDanhMuc, MoTa) " +
-                    "VALUES ('" + txtMaDM.Text +
-                    "','" + txtTenDM.Text +
-                    "','" + txtMota.Text + "')";
-                try
-                {
-                    HAMXULY.RunSQL(sqlInsert);
-                    MessageBox.Show("Bạn đã thêm thành công 1 danh mục: ", txtTenDM.Text);
-                    showDM();
-                }
-                catch (Exception exx)
-                {
-                    MessageBox.Show(exx.Message);
-                }
-            }    
-        }
 
         private void btnSua_Click(object sender, EventArgs e)
         {
@@ -129,7 +127,7 @@ namespace LTQL
         }
         private void SuaDM()
         {
-            if(Kiemtrathongtin())
+            if (Kiemtrathongtin())
             {
                 HAMXULY.Connect();
                 string sqlUpdate = "UPDATE DANHMUC" +
@@ -146,13 +144,13 @@ namespace LTQL
                 {
                     MessageBox.Show(exx.Message);
                 }
-            }    
+            }
         }
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
             if (!Kiemtrathongtin())
-            return;
+                return;
             if (dangThem)
             {
                 ThemDM();
@@ -163,6 +161,9 @@ namespace LTQL
             else
             {
                 SuaDM();
+                btnThem.Enabled = true;
+                btnSua.Enabled = true;
+                btnXoa.Enabled = true;
             }
         }
 
@@ -172,7 +173,6 @@ namespace LTQL
             btnSua.Enabled = true;
             btnXoa.Enabled = true;
             pnlDM.Enabled = false;
-
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
