@@ -102,5 +102,32 @@ namespace WindowsFormsApplication1
         {
 
         }
+
+        private void Mnnv_Click(object sender, EventArgs e)
+        {
+            frmNhanvien f = new frmNhanvien();
+            
+            f.Show();
+        }
+
+        private void lậpBáoCáoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void topSảnPhẩmToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Mnbc_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void frmMain_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
