@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace LTQL
+namespace WindowsFormsApplication1
 {
     public partial class frmDanhMuc : Form
     {

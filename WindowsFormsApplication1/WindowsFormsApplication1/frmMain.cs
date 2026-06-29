@@ -39,8 +39,8 @@ namespace WindowsFormsApplication1
          }
          public ToolStripMenuItem MnCL
          {
-             get { return Mncl; }
-             set { Mncl = value; }
+             get { return Mndmsp; }
+             set { Mndmsp = value; }
          }
          public ToolStripMenuItem MnMH
          {
@@ -92,6 +92,11 @@ namespace WindowsFormsApplication1
              get { return Mnbc; }
              set { Mnbc = value; }
          }
+         public ToolStripMenuItem MnLBC
+         {
+             get { return Mnlbc; }
+             set { Mnlbc = value; }
+         }
          public ToolStripMenuItem MnTG
          {
              get { return Mntg; }
@@ -112,7 +117,9 @@ namespace WindowsFormsApplication1
 
         private void lậpBáoCáoToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            frmBaoCao f = new frmBaoCao();
 
+            f.Show();
         }
 
         private void topSảnPhẩmToolStripMenuItem_Click(object sender, EventArgs e)
@@ -127,7 +134,62 @@ namespace WindowsFormsApplication1
 
         private void frmMain_Load(object sender, EventArgs e)
         {
+            frmDashboard frm = new frmDashboard();
 
+            frm.MdiParent = this;
+
+            frm.WindowState = FormWindowState.Maximized;
+
+            frm.Show();
+
+            //Đổi màu MenuStrip
+            menuStrip1.BackColor = Color.White;
+            menuStrip1.ForeColor = Color.FromArgb(45, 45, 45);
+
+            menuStrip1.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+
+            this.BackColor = Color.FromArgb(245, 247, 250);
+
+            //Tăng chiều cao menu
+            menuStrip1.Padding = new Padding(10, 8, 10, 8);
+
+            // Tăng khoảng cách chữ Font
+            menuStrip1.RenderMode = ToolStripRenderMode.System;
+            new Font("Segoe UI", 10, FontStyle.Bold);
+        }
+        // danh mục san phẩm
+        private void Mncl_Click(object sender, EventArgs e)
+        {
+            frmDanhMuc f = new frmDanhMuc();
+
+            f.Show();
+        }
+
+        private void thoátToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult kq = MessageBox.Show(
+        "Bạn có muốn đăng xuất không?",
+        "Thông báo",
+        MessageBoxButtons.YesNo,
+        MessageBoxIcon.Question);
+
+            if (kq == DialogResult.Yes)
+            {
+                frmLogin login = new frmLogin();
+                login.Show();
+
+                this.Hide();    // Ẩn frmMain
+            }
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void btnHeThong_Click(object sender, EventArgs e)
+        {
+           
         }
     }
 }
