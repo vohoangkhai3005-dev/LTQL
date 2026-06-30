@@ -82,10 +82,11 @@ namespace WindowsFormsApplication1
                         frmM.MnTKHD.Enabled = true;
 
                         frmM.MnBC.Enabled = true;
+                        frmM.MnLBC.Enabled = true;
                         frmM.MnTG.Enabled = true;
 
                         // Kiểm tra sau khi đã bật
-                        MessageBox.Show(frmM.MnThemTK.Enabled.ToString());
+                        //MessageBox.Show(frmM.MnThemTK.Enabled.ToString());
 
                         frmM.Show();
                         this.Hide();

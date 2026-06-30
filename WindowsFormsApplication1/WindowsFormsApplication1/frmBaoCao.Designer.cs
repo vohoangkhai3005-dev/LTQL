@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmBaoCao));
             this.label1 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -50,6 +51,10 @@
             this.dtpTuNgayTop = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
+            this.btnIn = new System.Windows.Forms.Button();
+            this.lblTongDoanhThuTop = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDoanhThu)).BeginInit();
@@ -191,6 +196,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.lblTongDoanhThuTop);
             this.tabPage2.Controls.Add(this.dgvTopSanPham);
             this.tabPage2.Controls.Add(this.btnXemTop);
             this.tabPage2.Controls.Add(this.label8);
@@ -276,11 +282,45 @@
             this.label7.TabIndex = 7;
             this.label7.Text = "Từ ngày ";
             // 
+            // printDocument1
+            // 
+            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
+            // 
+            // printPreviewDialog1
+            // 
+            this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialog1.Enabled = true;
+            this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
+            this.printPreviewDialog1.Name = "printPreviewDialog1";
+            this.printPreviewDialog1.Visible = false;
+            // 
+            // btnIn
+            // 
+            this.btnIn.Location = new System.Drawing.Point(334, 721);
+            this.btnIn.Name = "btnIn";
+            this.btnIn.Size = new System.Drawing.Size(135, 47);
+            this.btnIn.TabIndex = 2;
+            this.btnIn.Text = "In báo cáo";
+            this.btnIn.UseVisualStyleBackColor = true;
+            this.btnIn.Click += new System.EventHandler(this.btnIn_Click);
+            // 
+            // lblTongDoanhThuTop
+            // 
+            this.lblTongDoanhThuTop.AutoSize = true;
+            this.lblTongDoanhThuTop.Location = new System.Drawing.Point(16, 281);
+            this.lblTongDoanhThuTop.Name = "lblTongDoanhThuTop";
+            this.lblTongDoanhThuTop.Size = new System.Drawing.Size(237, 29);
+            this.lblTongDoanhThuTop.TabIndex = 15;
+            this.lblTongDoanhThuTop.Text = "Tổng doanh thu Top:";
+            // 
             // frmBaoCao
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 29F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(871, 780);
+            this.Controls.Add(this.btnIn);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -324,5 +364,9 @@
         private System.Windows.Forms.DateTimePicker dtpTuNgayTop;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
+        private System.Drawing.Printing.PrintDocument printDocument1;
+        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
+        private System.Windows.Forms.Button btnIn;
+        private System.Windows.Forms.Label lblTongDoanhThuTop;
     }
 }

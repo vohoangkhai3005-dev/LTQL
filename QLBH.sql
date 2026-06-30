@@ -55,7 +55,7 @@ INSERT INTO CHUCNANG (TENCN)
 VALUES
 (N'Thêm tài khoản'),
 (N'Đổi mật khẩu'),
-(N'QL chất liệu'),
+(N'QL danh mục'),
 (N'QL mặt hàng'),
 (N'QL nhân viên'),
 (N'QL khách hàng'),
