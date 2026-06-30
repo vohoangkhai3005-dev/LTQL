@@ -37,6 +37,11 @@ namespace WindowsFormsApplication1
              get { return MnDanhm; }
              set { MnDanhm = value; }
          }
+         public ToolStripMenuItem MnDMSP
+         {
+             get { return Mndmsp; }
+             set { Mndmsp = value; }
+         }
          public ToolStripMenuItem MnCL
          {
              get { return Mndmsp; }
@@ -61,6 +66,11 @@ namespace WindowsFormsApplication1
          {
              get { return Mnhd; }
              set { Mnhd = value; }
+         }
+         public ToolStripMenuItem MnLHD
+         {
+             get { return Mnlhd; }
+             set { Mnlhd = value; }
          }
          public ToolStripMenuItem MnCTHD
          {
@@ -101,6 +111,11 @@ namespace WindowsFormsApplication1
          {
              get { return Mntg; }
              set { Mntg = value; }
+         }
+         public ToolStripMenuItem MnQP
+         {
+             get { return Mnqp; }
+             set { Mnqp = value; }
          }
 
         private void đổiMậtToolStripMenuItem_Click(object sender, EventArgs e)
@@ -190,6 +205,41 @@ namespace WindowsFormsApplication1
         private void btnHeThong_Click(object sender, EventArgs e)
         {
            
+        }
+
+        private void Mnlhd_Click(object sender, EventArgs e)
+        {
+            frmHoaDon f = new frmHoaDon();
+
+            f.Show();
+        }
+
+        private void Mnkh_Click(object sender, EventArgs e)
+        {
+            frmKhachHang f = new frmKhachHang();
+
+            f.Show();
+        }
+
+        private void Mncthd_Click(object sender, EventArgs e)
+        {
+            frmCTHD f = new frmCTHD();
+
+            f.Show();
+        }
+
+        private void Mnqp_Click(object sender, EventArgs e)
+        {
+            frmPhanQuyen f = new frmPhanQuyen();
+
+            f.Show();
+        }
+
+        private void MnThemtk_Click(object sender, EventArgs e)
+        {
+            frmThemTK f = new frmThemTK();
+
+            f.Show();
         }
     }
 }

@@ -75,6 +75,7 @@ namespace WindowsFormsApplication1
 
                         frmM.MnHD.Enabled = true;
                         frmM.MnCTHD.Enabled = true;
+                        frmM.MnLHD.Enabled = true;
 
                         frmM.MnTK.Enabled = true;
                         frmM.MnTKKH.Enabled = true;
@@ -85,6 +86,7 @@ namespace WindowsFormsApplication1
                         frmM.MnLBC.Enabled = true;
                         frmM.MnTG.Enabled = true;
 
+                        frmM.MnQP.Enabled = true;
                         // Kiểm tra sau khi đã bật
                         //MessageBox.Show(frmM.MnThemTK.Enabled.ToString());
 
@@ -98,72 +100,99 @@ namespace WindowsFormsApplication1
 
                         if (HAMXULY.Truyvan(sql3, dtPQ))
                         {
-                            frmM.Show();
+                            //frmM.Show();
 
                             foreach (DataRow row in dtPQ.Rows)
                             {
                                 if (row["IDCN"].ToString().Trim() == "1")
                                 {
-                                    frmM.MnHethong.Enabled = true;
-                                }
-                                if (row["IDCN"].ToString().Trim() == "2")
-                                {
                                     frmM.MnThemTK.Enabled = true;
                                 }
-                                if (row["IDCN"].ToString().Trim() == "3")
+
+                                if (row["IDCN"].ToString().Trim() == "2")
                                 {
                                     frmM.MnDoiMK.Enabled = true;
                                 }
+
+                                if (row["IDCN"].ToString().Trim() == "3") // QL danh mục
+                                {
+                                    frmM.MnDMSP.Enabled = true;  
+                                }
+
                                 if (row["IDCN"].ToString().Trim() == "4")
-                                {
-                                    frmM.MnDanhM.Enabled = true;
-                                }
-                                if (row["IDCN"].ToString().Trim() == "5")
-                                {
-                                    frmM.MnCL.Enabled = true;
-                                }
-                                if (row["IDCN"].ToString().Trim() == "6")
                                 {
                                     frmM.MnMH.Enabled = true;
                                 }
-                                if (row["IDCN"].ToString().Trim() == "7")
-                                {
-                                    frmM.MnKH.Enabled = true;
-                                }
-                                if (row["IDCN"].ToString().Trim() == "8")
+
+                                if (row["IDCN"].ToString().Trim() == "5")
                                 {
                                     frmM.MnNV.Enabled = true;
                                 }
-                                if (row["IDCN"].ToString().Trim() == "9")
+
+                                if (row["IDCN"].ToString().Trim() == "6")
+                                {
+                                    frmM.MnKH.Enabled = true;
+                                }
+
+                                if (row["IDCN"].ToString().Trim() == "7")
+                                {
+                                    // Nếu có menu Hóa đơn thì mở ở đây
+                                     frmM.MnLHD.Enabled = true;
+                                }
+
+                                if (row["IDCN"].ToString().Trim() == "8")
                                 {
                                     frmM.MnCTHD.Enabled = true;
                                 }
-                                if (row["IDCN"].ToString().Trim() == "10")
-                                {
-                                    frmM.MnTK.Enabled = true;
-                                }
-                                if (row["IDCN"].ToString().Trim() == "11")
-                                {
-                                    frmM.MnTKKH.Enabled = true;
-                                }
-                                if (row["IDCN"].ToString().Trim() == "12")
-                                {
 
-                                    frmM.MnTKMH.Enabled = true;
-                                }
-                                if (row["IDCN"].ToString().Trim() == "13")
+                                if (row["IDCN"].ToString().Trim() == "9")
                                 {
                                     frmM.MnTKHD.Enabled = true;
                                 }
-                                if (row["IDCN"].ToString().Trim() == "14")
+
+                                if (row["IDCN"].ToString().Trim() == "10")
+                                {
+                                    frmM.MnTKKH.Enabled = true;
+                                }
+
+                                if (row["IDCN"].ToString().Trim() == "11")
+                                {
+                                    frmM.MnTKMH.Enabled = true;
+                                }
+
+                                if (row["IDCN"].ToString().Trim() == "12")
                                 {
                                     frmM.MnBC.Enabled = true;
                                 }
-                                if (row["IDCN"].ToString().Trim() == "15")
+
+                                if (row["IDCN"].ToString().Trim() == "13")
                                 {
                                     frmM.MnTG.Enabled = true;
                                 }
+
+                                if (row["IDCN"].ToString().Trim() == "12") //Báo cáo doanh thu
+                                {
+                                    frmM.MnLBC.Enabled = true;
+                                }
+
+                                // Giữ nguyên những menu chưa có trong bảng CHUCNANG
+                                if (row["IDCN"].ToString().Trim() == "15")
+                                {
+                                    frmM.MnHethong.Enabled = true;
+                                }
+
+                                if (row["IDCN"].ToString().Trim() == "16")
+                                {
+                                    frmM.MnCL.Enabled = true;
+                                }
+
+                                if (row["IDCN"].ToString().Trim() == "17")
+                                {
+                                    frmM.MnTK.Enabled = true;
+                                }
                             }
+                            frmM.Show();
+                            this.Hide();
                         }
 
 

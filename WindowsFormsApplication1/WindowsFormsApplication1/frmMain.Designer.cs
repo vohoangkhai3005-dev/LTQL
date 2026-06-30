@@ -32,6 +32,7 @@
             this.MnHeThong = new System.Windows.Forms.ToolStripMenuItem();
             this.MnThemtk = new System.Windows.Forms.ToolStripMenuItem();
             this.MnDoimk = new System.Windows.Forms.ToolStripMenuItem();
+            this.Mnqp = new System.Windows.Forms.ToolStripMenuItem();
             this.thoátToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MnDanhm = new System.Windows.Forms.ToolStripMenuItem();
             this.Mndmsp = new System.Windows.Forms.ToolStripMenuItem();
@@ -39,6 +40,7 @@
             this.Mnkh = new System.Windows.Forms.ToolStripMenuItem();
             this.Mnnv = new System.Windows.Forms.ToolStripMenuItem();
             this.Mnhd = new System.Windows.Forms.ToolStripMenuItem();
+            this.Mnlhd = new System.Windows.Forms.ToolStripMenuItem();
             this.Mncthd = new System.Windows.Forms.ToolStripMenuItem();
             this.Mntk = new System.Windows.Forms.ToolStripMenuItem();
             this.Mntkkh = new System.Windows.Forms.ToolStripMenuItem();
@@ -72,8 +74,8 @@
             this.MnHeThong.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.MnThemtk,
             this.MnDoimk,
+            this.Mnqp,
             this.thoátToolStripMenuItem});
-            this.MnHeThong.Enabled = false;
             this.MnHeThong.Name = "MnHeThong";
             this.MnHeThong.Size = new System.Drawing.Size(83, 24);
             this.MnHeThong.Text = "Hệ thống";
@@ -84,6 +86,7 @@
             this.MnThemtk.Name = "MnThemtk";
             this.MnThemtk.Size = new System.Drawing.Size(186, 26);
             this.MnThemtk.Text = "Thêm tài khoản";
+            this.MnThemtk.Click += new System.EventHandler(this.MnThemtk_Click);
             // 
             // MnDoimk
             // 
@@ -92,6 +95,14 @@
             this.MnDoimk.Size = new System.Drawing.Size(186, 26);
             this.MnDoimk.Text = "Đổi mật khẩu";
             this.MnDoimk.Click += new System.EventHandler(this.đổiMậtToolStripMenuItem_Click);
+            // 
+            // Mnqp
+            // 
+            this.Mnqp.Enabled = false;
+            this.Mnqp.Name = "Mnqp";
+            this.Mnqp.Size = new System.Drawing.Size(186, 26);
+            this.Mnqp.Text = "Phân quyền";
+            this.Mnqp.Click += new System.EventHandler(this.Mnqp_Click);
             // 
             // thoátToolStripMenuItem
             // 
@@ -107,7 +118,6 @@
             this.Mnmh,
             this.Mnkh,
             this.Mnnv});
-            this.MnDanhm.Enabled = false;
             this.MnDanhm.Name = "MnDanhm";
             this.MnDanhm.Size = new System.Drawing.Size(92, 24);
             this.MnDanhm.Text = "Danh mục ";
@@ -133,6 +143,7 @@
             this.Mnkh.Name = "Mnkh";
             this.Mnkh.Size = new System.Drawing.Size(220, 26);
             this.Mnkh.Text = "Khách hàng";
+            this.Mnkh.Click += new System.EventHandler(this.Mnkh_Click);
             // 
             // Mnnv
             // 
@@ -145,11 +156,19 @@
             // Mnhd
             // 
             this.Mnhd.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.Mnlhd,
             this.Mncthd});
-            this.Mnhd.Enabled = false;
             this.Mnhd.Name = "Mnhd";
             this.Mnhd.Size = new System.Drawing.Size(79, 24);
             this.Mnhd.Text = "Hóa đơn";
+            // 
+            // Mnlhd
+            // 
+            this.Mnlhd.Enabled = false;
+            this.Mnlhd.Name = "Mnlhd";
+            this.Mnlhd.Size = new System.Drawing.Size(190, 26);
+            this.Mnlhd.Text = "Lập hóa đơn";
+            this.Mnlhd.Click += new System.EventHandler(this.Mnlhd_Click);
             // 
             // Mncthd
             // 
@@ -157,6 +176,7 @@
             this.Mncthd.Name = "Mncthd";
             this.Mncthd.Size = new System.Drawing.Size(190, 26);
             this.Mncthd.Text = "Chi tiết hóa đơn";
+            this.Mncthd.Click += new System.EventHandler(this.Mncthd_Click);
             // 
             // Mntk
             // 
@@ -164,7 +184,6 @@
             this.Mntkkh,
             this.Mntkmh,
             this.Mntkhd});
-            this.Mntk.Enabled = false;
             this.Mntk.Name = "Mntk";
             this.Mntk.Size = new System.Drawing.Size(82, 24);
             this.Mntk.Text = "Tìm kiếm";
@@ -173,28 +192,27 @@
             // 
             this.Mntkkh.Enabled = false;
             this.Mntkkh.Name = "Mntkkh";
-            this.Mntkkh.Size = new System.Drawing.Size(159, 26);
+            this.Mntkkh.Size = new System.Drawing.Size(181, 26);
             this.Mntkkh.Text = "khách hàng";
             // 
             // Mntkmh
             // 
             this.Mntkmh.Enabled = false;
             this.Mntkmh.Name = "Mntkmh";
-            this.Mntkmh.Size = new System.Drawing.Size(159, 26);
+            this.Mntkmh.Size = new System.Drawing.Size(181, 26);
             this.Mntkmh.Text = "Mặt hàng";
             // 
             // Mntkhd
             // 
             this.Mntkhd.Enabled = false;
             this.Mntkhd.Name = "Mntkhd";
-            this.Mntkhd.Size = new System.Drawing.Size(159, 26);
+            this.Mntkhd.Size = new System.Drawing.Size(181, 26);
             this.Mntkhd.Text = "Hóa đơn";
             // 
             // Mnbc
             // 
             this.Mnbc.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.Mnlbc});
-            this.Mnbc.Enabled = false;
             this.Mnbc.Name = "Mnbc";
             this.Mnbc.Size = new System.Drawing.Size(79, 24);
             this.Mnbc.Text = "Báo cáo ";
@@ -204,13 +222,12 @@
             // 
             this.Mnlbc.Enabled = false;
             this.Mnlbc.Name = "Mnlbc";
-            this.Mnlbc.Size = new System.Drawing.Size(166, 26);
-            this.Mnlbc.Text = "Lập báo cáo";
+            this.Mnlbc.Size = new System.Drawing.Size(237, 26);
+            this.Mnlbc.Text = "Lập báo cáo doanh thu";
             this.Mnlbc.Click += new System.EventHandler(this.lậpBáoCáoToolStripMenuItem_Click);
             // 
             // Mntg
             // 
-            this.Mntg.Enabled = false;
             this.Mntg.Name = "Mntg";
             this.Mntg.Size = new System.Drawing.Size(76, 24);
             this.Mntg.Text = "Trợ giúp";
@@ -256,5 +273,7 @@
         private System.Windows.Forms.ToolStripMenuItem Mntkmh;
         private System.Windows.Forms.ToolStripMenuItem Mntkhd;
         private System.Windows.Forms.ToolStripMenuItem Mnlbc;
+        private System.Windows.Forms.ToolStripMenuItem Mnlhd;
+        private System.Windows.Forms.ToolStripMenuItem Mnqp;
     }
 }

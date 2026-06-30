@@ -66,7 +66,7 @@ VALUES
 (N'Tìm kiếm mặt hàng'),
 (N'Báo cáo doanh thu'),
 (N'Báo cáo tồn kho'),
-(N'In báo cáo');
+(N'In báo cáo'); /*REPOST*/ 
 GO
 /*====================================================
 =                 BẢNG VAITRO

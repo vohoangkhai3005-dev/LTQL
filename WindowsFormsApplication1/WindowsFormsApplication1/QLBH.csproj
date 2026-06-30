@@ -113,11 +113,23 @@
     <Compile Include="frmNhanvien.Designer.cs">
       <DependentUpon>frmNhanvien.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmPhanQuyen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPhanQuyen.Designer.cs">
+      <DependentUpon>frmPhanQuyen.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmReportCTHD.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmReportCTHD.Designer.cs">
       <DependentUpon>frmReportCTHD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmThemTK.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmThemTK.Designer.cs">
+      <DependentUpon>frmThemTK.cs</DependentUpon>
     </Compile>
     <Compile Include="HAMXULY.cs" />
     <Compile Include="Program.cs" />
@@ -171,8 +183,14 @@
     <EmbeddedResource Include="frmNhanvien.resx">
       <DependentUpon>frmNhanvien.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmPhanQuyen.resx">
+      <DependentUpon>frmPhanQuyen.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmReportCTHD.resx">
       <DependentUpon>frmReportCTHD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmThemTK.resx">
+      <DependentUpon>frmThemTK.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
