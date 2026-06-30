@@ -1,5 +1,5 @@
 ﻿
-namespace LTQL
+namespace WindowsFormsApplication1
 {
     partial class frmDanhMuc
     {
