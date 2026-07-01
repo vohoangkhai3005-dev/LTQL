@@ -58,6 +58,8 @@ namespace WindowsFormsApplication1
 
                 if (HAMXULY.Truyvan(sql1, dtlg))
                 {
+                    HAMXULY.TaiKhoanDangNhap = TAIKHOANG;
+
                     string NHOMQUYEN = dtlg.Rows[0]["NHOM"].ToString().Trim();
                     
                     string IDUSER = dtlg.Rows[0]["IDUSER"].ToString().Trim();
@@ -221,6 +223,11 @@ namespace WindowsFormsApplication1
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
            txtMK.UseSystemPasswordChar = !chbHMK.Checked;
+        }
+
+        private void frmLogin_Load(object sender, EventArgs e)
+        {
+            
         }
        
     }

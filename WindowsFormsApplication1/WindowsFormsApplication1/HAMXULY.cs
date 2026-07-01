@@ -99,6 +99,8 @@ namespace WindowsFormsApplication1
             return ma;
         }
 
+        //Lưu tài khoản đang đăng nhập
+        public static string TaiKhoanDangNhap = "";
     }
 
    

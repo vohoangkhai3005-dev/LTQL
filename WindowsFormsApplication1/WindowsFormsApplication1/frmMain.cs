@@ -120,7 +120,9 @@ namespace WindowsFormsApplication1
 
         private void đổiMậtToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            frmDoiMK f = new frmDoiMK();
 
+            f.Show();
         }
 
         private void Mnnv_Click(object sender, EventArgs e)
@@ -238,6 +240,41 @@ namespace WindowsFormsApplication1
         private void MnThemtk_Click(object sender, EventArgs e)
         {
             frmThemTK f = new frmThemTK();
+
+            f.Show();
+        }
+
+        private void Mnmh_Click(object sender, EventArgs e)
+        {
+            frmMatHang f = new frmMatHang();
+
+            f.Show();
+        }
+
+        private void Mntkkh_Click(object sender, EventArgs e)
+        {
+            frmTKKH f = new frmTKKH();
+
+            f.Show();
+        }
+
+        private void Mntg_Click(object sender, EventArgs e)
+        {
+            frmTroGiup f = new frmTroGiup();
+
+            f.Show();
+        }
+
+        private void Mntkhd_Click(object sender, EventArgs e)
+        {
+            frmTKHD f = new frmTKHD();
+
+            f.Show();
+        }
+
+        private void Mntkmh_Click(object sender, EventArgs e)
+        {
+            frmTKMH f = new frmTKMH();
 
             f.Show();
         }

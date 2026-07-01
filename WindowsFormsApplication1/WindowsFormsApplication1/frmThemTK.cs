@@ -53,6 +53,14 @@ namespace WindowsFormsApplication1
 
             ShowTaiKhoan();
 
+            dgvTaiKhoan.ReadOnly = true;
+            dgvTaiKhoan.MultiSelect = false;
+
+            dgvTaiKhoan.ClearSelection();
+
+
+            txtMatKhau.UseSystemPasswordChar = true;
+
             // DataGridView đẹp hơn
             dgvTaiKhoan.BackgroundColor = Color.White;
             dgvTaiKhoan.BorderStyle = BorderStyle.None;
@@ -121,7 +129,7 @@ namespace WindowsFormsApplication1
 
                 dgvTaiKhoan.Columns["TAIKHOANG"].HeaderText = "Tài khoản";
 
-                dgvTaiKhoan.Columns["MATKHAU"].HeaderText = "Mật khẩu";
+                dgvTaiKhoan.Columns["MATKHAU"].Visible = false;
 
                 dgvTaiKhoan.Columns["NHOM"].HeaderText = "Nhóm";
             }
@@ -136,7 +144,7 @@ namespace WindowsFormsApplication1
                 dgvTaiKhoan.CurrentRow.Cells["TAIKHOANG"].Value.ToString();
 
             txtMatKhau.Text =
-                dgvTaiKhoan.CurrentRow.Cells["MATKHAU"].Value.ToString();
+                 dgvTaiKhoan.CurrentRow.Cells["MATKHAU"].Value.ToString();
 
             cboNhom.Text =
                 dgvTaiKhoan.CurrentRow.Cells["NHOM"].Value.ToString();
@@ -194,6 +202,8 @@ namespace WindowsFormsApplication1
 
                 ResetText();
 
+                dgvTaiKhoan.ClearSelection();
+
                 btnSua.Enabled = true;
                 btnXoa.Enabled = true;
             }
@@ -239,6 +249,8 @@ namespace WindowsFormsApplication1
 
             ResetText();
 
+            dgvTaiKhoan.ClearSelection();
+
             btnThem.Enabled = true;
             btnSua.Enabled = true;
             btnXoa.Enabled = true;
@@ -259,6 +271,7 @@ namespace WindowsFormsApplication1
             panelTaiKhoan.Enabled = true;
 
             txtTaiKhoan.Enabled = false; // Không cho sửa tài khoản
+            txtMatKhau.ReadOnly = true;  // Không cho sửa mật khẩu
 
             btnThem.Enabled = false;
             btnXoa.Enabled = false;
@@ -277,6 +290,15 @@ namespace WindowsFormsApplication1
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
+            if (txtTaiKhoan.Text.Trim() == HAMXULY.TaiKhoanDangNhap)
+            {
+                MessageBox.Show("Không thể xóa tài khoản đang đăng nhập!",
+                                "Thông báo",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
+                return;
+            }
+
             if (txtTaiKhoan.Text == "")
             {
                 MessageBox.Show("Bạn chưa chọn tài khoản",
@@ -307,6 +329,8 @@ namespace WindowsFormsApplication1
 
                     ShowTaiKhoan();
                     ResetText();
+
+                    dgvTaiKhoan.ClearSelection();
                 }
             }
         }

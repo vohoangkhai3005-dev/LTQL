@@ -136,6 +136,7 @@
             this.Mnmh.Name = "Mnmh";
             this.Mnmh.Size = new System.Drawing.Size(220, 26);
             this.Mnmh.Text = "Mặt hàng ";
+            this.Mnmh.Click += new System.EventHandler(this.Mnmh_Click);
             // 
             // Mnkh
             // 
@@ -194,6 +195,7 @@
             this.Mntkkh.Name = "Mntkkh";
             this.Mntkkh.Size = new System.Drawing.Size(181, 26);
             this.Mntkkh.Text = "khách hàng";
+            this.Mntkkh.Click += new System.EventHandler(this.Mntkkh_Click);
             // 
             // Mntkmh
             // 
@@ -201,6 +203,7 @@
             this.Mntkmh.Name = "Mntkmh";
             this.Mntkmh.Size = new System.Drawing.Size(181, 26);
             this.Mntkmh.Text = "Mặt hàng";
+            this.Mntkmh.Click += new System.EventHandler(this.Mntkmh_Click);
             // 
             // Mntkhd
             // 
@@ -208,6 +211,7 @@
             this.Mntkhd.Name = "Mntkhd";
             this.Mntkhd.Size = new System.Drawing.Size(181, 26);
             this.Mntkhd.Text = "Hóa đơn";
+            this.Mntkhd.Click += new System.EventHandler(this.Mntkhd_Click);
             // 
             // Mnbc
             // 
@@ -231,6 +235,7 @@
             this.Mntg.Name = "Mntg";
             this.Mntg.Size = new System.Drawing.Size(76, 24);
             this.Mntg.Text = "Trợ giúp";
+            this.Mntg.Click += new System.EventHandler(this.Mntg_Click);
             // 
             // frmMain
             // 
@@ -243,6 +248,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.Name = "frmMain";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmMain";
             this.Load += new System.EventHandler(this.frmMain_Load);
             this.menuStrip1.ResumeLayout(false);

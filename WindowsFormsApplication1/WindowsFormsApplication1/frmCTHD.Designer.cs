@@ -79,7 +79,7 @@
             // 
             this.txtSL.Location = new System.Drawing.Point(505, 17);
             this.txtSL.Name = "txtSL";
-            this.txtSL.Size = new System.Drawing.Size(100, 29);
+            this.txtSL.Size = new System.Drawing.Size(100, 34);
             this.txtSL.TabIndex = 16;
             this.txtSL.TextChanged += new System.EventHandler(this.txtSL_TextChanged);
             // 
@@ -87,7 +87,7 @@
             // 
             this.txtTT.Location = new System.Drawing.Point(505, 144);
             this.txtTT.Name = "txtTT";
-            this.txtTT.Size = new System.Drawing.Size(100, 29);
+            this.txtTT.Size = new System.Drawing.Size(100, 34);
             this.txtTT.TabIndex = 15;
             this.txtTT.TextChanged += new System.EventHandler(this.txtTT_TextChanged);
             // 
@@ -96,7 +96,7 @@
             this.cboMMH.FormattingEnabled = true;
             this.cboMMH.Location = new System.Drawing.Point(164, 132);
             this.cboMMH.Name = "cboMMH";
-            this.cboMMH.Size = new System.Drawing.Size(121, 32);
+            this.cboMMH.Size = new System.Drawing.Size(121, 37);
             this.cboMMH.TabIndex = 14;
             this.cboMMH.SelectedIndexChanged += new System.EventHandler(this.cboMMH_SelectedIndexChanged);
             // 
@@ -105,14 +105,14 @@
             this.cboMHD.FormattingEnabled = true;
             this.cboMHD.Location = new System.Drawing.Point(135, 74);
             this.cboMHD.Name = "cboMHD";
-            this.cboMHD.Size = new System.Drawing.Size(121, 32);
+            this.cboMHD.Size = new System.Drawing.Size(121, 37);
             this.cboMHD.TabIndex = 13;
             // 
             // txtGG
             // 
             this.txtGG.Location = new System.Drawing.Point(505, 105);
             this.txtGG.Name = "txtGG";
-            this.txtGG.Size = new System.Drawing.Size(100, 29);
+            this.txtGG.Size = new System.Drawing.Size(100, 34);
             this.txtGG.TabIndex = 12;
             this.txtGG.TextChanged += new System.EventHandler(this.txtGG_TextChanged);
             // 
@@ -120,7 +120,7 @@
             // 
             this.txtDG.Location = new System.Drawing.Point(505, 56);
             this.txtDG.Name = "txtDG";
-            this.txtDG.Size = new System.Drawing.Size(100, 29);
+            this.txtDG.Size = new System.Drawing.Size(100, 34);
             this.txtDG.TabIndex = 11;
             this.txtDG.TextChanged += new System.EventHandler(this.txtDG_TextChanged);
             // 
@@ -128,7 +128,7 @@
             // 
             this.txtMCTHD.Location = new System.Drawing.Point(118, 17);
             this.txtMCTHD.Name = "txtMCTHD";
-            this.txtMCTHD.Size = new System.Drawing.Size(100, 29);
+            this.txtMCTHD.Size = new System.Drawing.Size(100, 34);
             this.txtMCTHD.TabIndex = 7;
             // 
             // label7
@@ -136,7 +136,7 @@
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(358, 149);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(100, 24);
+            this.label7.Size = new System.Drawing.Size(126, 29);
             this.label7.TabIndex = 6;
             this.label7.Text = "Thành tiền";
             // 
@@ -145,7 +145,7 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(358, 108);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(84, 24);
+            this.label6.Size = new System.Drawing.Size(109, 29);
             this.label6.TabIndex = 5;
             this.label6.Text = "Giảm giá";
             // 
@@ -154,7 +154,7 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(358, 61);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(75, 24);
+            this.label5.Size = new System.Drawing.Size(96, 29);
             this.label5.TabIndex = 4;
             this.label5.Text = "Đơn giá";
             // 
@@ -163,7 +163,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(358, 17);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(86, 24);
+            this.label4.Size = new System.Drawing.Size(109, 29);
             this.label4.TabIndex = 3;
             this.label4.Text = "Số lượng";
             // 
@@ -172,7 +172,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(18, 132);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(88, 24);
+            this.label3.Size = new System.Drawing.Size(111, 29);
             this.label3.TabIndex = 2;
             this.label3.Text = "Mặt hàng";
             // 
@@ -181,7 +181,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(18, 74);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(112, 24);
+            this.label2.Size = new System.Drawing.Size(139, 29);
             this.label2.TabIndex = 1;
             this.label2.Text = "Mã hóa đơn";
             // 
@@ -190,7 +190,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(18, 17);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(94, 24);
+            this.label1.Size = new System.Drawing.Size(121, 29);
             this.label1.TabIndex = 0;
             this.label1.Text = "Mã chi tiết";
             // 
@@ -265,7 +265,7 @@
             // 
             // frmCTHD
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 29F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(707, 482);
             this.Controls.Add(this.btnHuy);
@@ -279,6 +279,7 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.Name = "frmCTHD";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmCTHD";
             this.Load += new System.EventHandler(this.frmCTHD_Load);
             this.panelCTHD.ResumeLayout(false);

@@ -43,6 +43,7 @@
             this.rdoNgay = new System.Windows.Forms.RadioButton();
             this.label2 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.lblTongDoanhThuTop = new System.Windows.Forms.Label();
             this.dgvTopSanPham = new System.Windows.Forms.DataGridView();
             this.btnXemTop = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
@@ -54,7 +55,6 @@
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.btnIn = new System.Windows.Forms.Button();
-            this.lblTongDoanhThuTop = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDoanhThu)).BeginInit();
@@ -213,6 +213,15 @@
             this.tabPage2.Text = "Top sản phẩm";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // lblTongDoanhThuTop
+            // 
+            this.lblTongDoanhThuTop.AutoSize = true;
+            this.lblTongDoanhThuTop.Location = new System.Drawing.Point(16, 281);
+            this.lblTongDoanhThuTop.Name = "lblTongDoanhThuTop";
+            this.lblTongDoanhThuTop.Size = new System.Drawing.Size(237, 29);
+            this.lblTongDoanhThuTop.TabIndex = 15;
+            this.lblTongDoanhThuTop.Text = "Tổng doanh thu Top:";
+            // 
             // dgvTopSanPham
             // 
             this.dgvTopSanPham.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -306,15 +315,6 @@
             this.btnIn.UseVisualStyleBackColor = true;
             this.btnIn.Click += new System.EventHandler(this.btnIn_Click);
             // 
-            // lblTongDoanhThuTop
-            // 
-            this.lblTongDoanhThuTop.AutoSize = true;
-            this.lblTongDoanhThuTop.Location = new System.Drawing.Point(16, 281);
-            this.lblTongDoanhThuTop.Name = "lblTongDoanhThuTop";
-            this.lblTongDoanhThuTop.Size = new System.Drawing.Size(237, 29);
-            this.lblTongDoanhThuTop.TabIndex = 15;
-            this.lblTongDoanhThuTop.Text = "Tổng doanh thu Top:";
-            // 
             // frmBaoCao
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 29F);
@@ -326,6 +326,7 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "frmBaoCao";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmBaoCao";
             this.Load += new System.EventHandler(this.frmBaoCao_Load);
             this.tabControl1.ResumeLayout(false);
