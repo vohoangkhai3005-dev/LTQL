@@ -254,7 +254,7 @@ namespace WindowsFormsApplication1
             this.ClientSize = new System.Drawing.Size(920, 735);
             this.Controls.Add(this.dgvDM);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.label2);
+            
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pnlDM);
             this.Controls.Add(this.panel2);

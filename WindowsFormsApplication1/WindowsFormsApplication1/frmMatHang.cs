@@ -99,7 +99,6 @@ namespace WindowsFormsApplication1
         private void Luoi_MatHang_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
-
         }
         private void ResetText()
         {
@@ -433,6 +432,8 @@ namespace WindowsFormsApplication1
             MaNCC = Luoi_MatHang.CurrentRow.Cells["MaNCC"].Value.ToString();
             sqlNCC = "SELECT TenNCC FROM NHACUNGCAP WHERE MaNCC=N'" + MaNCC + "'";
             cboMNCC.Text = HAMXULY.GetFieldValues(sqlNCC);
+
+            //sửa hình 
             hinhAnh = Luoi_MatHang.CurrentRow.Cells["HinhAnh"].Value.ToString();
 
             string duongDan = Path.Combine(LayThuMucAnh(), hinhAnh);

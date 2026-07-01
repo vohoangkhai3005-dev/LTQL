@@ -17,12 +17,13 @@ namespace WindowsFormsApplication1
             InitializeComponent();
         }
 
-        private void frmDanhMuc_Load(object sender, EventArgs e)
-        {
-            pnlDM.Enabled = false;
-            showDM();
+       private void frmDanhMuc_Load(object sender, EventArgs e)
+{
+    if (DesignMode) return;
 
-        }
+    pnlDM.Enabled = false;
+    showDM();
+}
         //Hàm kiểm tra thông tin
         private Boolean Kiemtrathongtin()
         {
@@ -201,3 +202,4 @@ namespace WindowsFormsApplication1
         }
     }
 }
+
