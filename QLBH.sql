@@ -66,7 +66,7 @@ VALUES
 (N'Tìm kiếm mặt hàng'),
 (N'Báo cáo doanh thu'),
 (N'Báo cáo tồn kho'),
-(N'In báo cáo');
+(N'In báo cáo'); /*REPOST*/ 
 GO
 /*====================================================
 =                 BẢNG VAITRO
@@ -230,7 +230,7 @@ GO
 
 INSERT INTO SANPHAM
 (MaSP, TenSP, MaNCC, MaDanhMuc, PhanLoai, GiaBan, SoLuongTon, HanSuDung, HinhAnh, MoTa, TrangThai)
-VALUES
+VALUES	
 ('SP001',N'Whey Protein Gold Standard 5lb','NCC001','DM001',N'Whey Protein Concentrate',1200000,15,'2026-12-31','whey_gold.jpg',N'Bột whey protein chất lượng cao, hỗ trợ tăng cơ bắp, 2.3kg mỗi hộp',1),
 
 ('SP002',N'BCAA 8:1:1 500g','NCC003','DM001',N'BCAA',450000,20,'2027-06-30','bcaa_500.jpg',N'Bộ ba amino acid thiên về leucine, tăng sức bền và phục hồi',1),

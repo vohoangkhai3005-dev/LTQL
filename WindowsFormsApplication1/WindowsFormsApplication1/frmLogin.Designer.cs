@@ -41,7 +41,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(72, 23);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(116, 20);
+            this.label1.Size = new System.Drawing.Size(145, 25);
             this.label1.TabIndex = 0;
             this.label1.Text = "Tên đăng nhập";
             // 
@@ -50,7 +50,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(72, 66);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(75, 20);
+            this.label2.Size = new System.Drawing.Size(93, 25);
             this.label2.TabIndex = 1;
             this.label2.Text = "Mật khẩu";
             // 
@@ -58,7 +58,7 @@
             // 
             this.txtTDN.Location = new System.Drawing.Point(218, 23);
             this.txtTDN.Name = "txtTDN";
-            this.txtTDN.Size = new System.Drawing.Size(100, 26);
+            this.txtTDN.Size = new System.Drawing.Size(100, 30);
             this.txtTDN.TabIndex = 2;
             this.txtTDN.TextChanged += new System.EventHandler(this.txtTDN_TextChanged);
             // 
@@ -66,7 +66,7 @@
             // 
             this.txtMK.Location = new System.Drawing.Point(217, 66);
             this.txtMK.Name = "txtMK";
-            this.txtMK.Size = new System.Drawing.Size(100, 26);
+            this.txtMK.Size = new System.Drawing.Size(100, 30);
             this.txtMK.TabIndex = 3;
             this.txtMK.UseSystemPasswordChar = true;
             this.txtMK.TextChanged += new System.EventHandler(this.txtPass_TextChanged);
@@ -86,7 +86,7 @@
             this.chbHMK.AutoSize = true;
             this.chbHMK.Location = new System.Drawing.Point(218, 102);
             this.chbHMK.Name = "chbHMK";
-            this.chbHMK.Size = new System.Drawing.Size(133, 24);
+            this.chbHMK.Size = new System.Drawing.Size(160, 29);
             this.chbHMK.TabIndex = 5;
             this.chbHMK.Text = "HIện mật khẩu\r\n";
             this.chbHMK.UseVisualStyleBackColor = true;
@@ -94,7 +94,7 @@
             // 
             // frmLogin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(386, 203);
@@ -107,7 +107,9 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "frmLogin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.frmLogin_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

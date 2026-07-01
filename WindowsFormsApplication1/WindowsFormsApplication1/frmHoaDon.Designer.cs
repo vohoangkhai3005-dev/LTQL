@@ -66,7 +66,7 @@
             // cboKH
             // 
             this.cboKH.FormattingEnabled = true;
-            this.cboKH.Location = new System.Drawing.Point(526, 28);
+            this.cboKH.Location = new System.Drawing.Point(589, 28);
             this.cboKH.Name = "cboKH";
             this.cboKH.Size = new System.Drawing.Size(121, 37);
             this.cboKH.TabIndex = 7;
@@ -74,7 +74,7 @@
             // cboNV
             // 
             this.cboNV.FormattingEnabled = true;
-            this.cboNV.Location = new System.Drawing.Point(134, 118);
+            this.cboNV.Location = new System.Drawing.Point(199, 115);
             this.cboNV.Name = "cboNV";
             this.cboNV.Size = new System.Drawing.Size(121, 37);
             this.cboNV.TabIndex = 6;
@@ -88,7 +88,7 @@
             // 
             // txtMHD
             // 
-            this.txtMHD.Location = new System.Drawing.Point(134, 36);
+            this.txtMHD.Location = new System.Drawing.Point(189, 31);
             this.txtMHD.Name = "txtMHD";
             this.txtMHD.Size = new System.Drawing.Size(100, 34);
             this.txtMHD.TabIndex = 4;
@@ -215,6 +215,7 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.Name = "frmHoaDon";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmHoaDon";
             this.Load += new System.EventHandler(this.frmHoaDon_Load);
             this.panelHoaDon.ResumeLayout(false);
