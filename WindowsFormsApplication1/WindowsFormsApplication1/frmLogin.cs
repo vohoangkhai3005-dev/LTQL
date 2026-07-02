@@ -87,8 +87,10 @@ namespace WindowsFormsApplication1
                         frmM.MnBC.Enabled = true;
                         frmM.MnLBC.Enabled = true;
                         frmM.MnTG.Enabled = true;
-
+                        
                         frmM.MnQP.Enabled = true;
+                        frmM.MnPNK.Enabled = true;
+
                         // Kiểm tra sau khi đã bật
                         //MessageBox.Show(frmM.MnThemTK.Enabled.ToString());
 
