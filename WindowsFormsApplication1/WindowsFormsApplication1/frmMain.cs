@@ -289,5 +289,11 @@ namespace WindowsFormsApplication1
             frmPhieuNhapKho f = new frmPhieuNhapKho();
             f.Show();
         }
+
+        private void chiTiếtPhiếuNhậpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ChiTietPhieuNhap f = new ChiTietPhieuNhap();
+            f.Show();
+        }
     }
 }

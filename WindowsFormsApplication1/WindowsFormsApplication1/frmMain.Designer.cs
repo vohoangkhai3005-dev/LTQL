@@ -50,6 +50,7 @@
             this.Mnbc = new System.Windows.Forms.ToolStripMenuItem();
             this.Mnlbc = new System.Windows.Forms.ToolStripMenuItem();
             this.Mntg = new System.Windows.Forms.ToolStripMenuItem();
+            this.chiTiếtPhiếuNhậpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -160,7 +161,8 @@
             this.Mnhd.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.Mnlhd,
             this.Mncthd,
-            this.MnPhieuNhap});
+            this.MnPhieuNhap,
+            this.chiTiếtPhiếuNhậpToolStripMenuItem});
             this.Mnhd.Name = "Mnhd";
             this.Mnhd.Size = new System.Drawing.Size(65, 20);
             this.Mnhd.Text = "Hóa đơn";
@@ -247,6 +249,13 @@
             this.Mntg.Text = "Trợ giúp";
             this.Mntg.Click += new System.EventHandler(this.Mntg_Click);
             // 
+            // chiTiếtPhiếuNhậpToolStripMenuItem
+            // 
+            this.chiTiếtPhiếuNhậpToolStripMenuItem.Name = "chiTiếtPhiếuNhậpToolStripMenuItem";
+            this.chiTiếtPhiếuNhậpToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.chiTiếtPhiếuNhậpToolStripMenuItem.Text = "Chi tiết phiếu nhập";
+            this.chiTiếtPhiếuNhậpToolStripMenuItem.Click += new System.EventHandler(this.chiTiếtPhiếuNhậpToolStripMenuItem_Click);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
@@ -292,5 +301,6 @@
         private System.Windows.Forms.ToolStripMenuItem Mnlhd;
         private System.Windows.Forms.ToolStripMenuItem Mnqp;
         private System.Windows.Forms.ToolStripMenuItem MnPhieuNhap;
+        private System.Windows.Forms.ToolStripMenuItem chiTiếtPhiếuNhậpToolStripMenuItem;
     }
 }
