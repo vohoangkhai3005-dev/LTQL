@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.INCHITIETBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.QLBHDataSet2 = new WindowsFormsApplication1.QLBHDataSet2();
             this.label1 = new System.Windows.Forms.Label();
@@ -63,7 +63,7 @@
             // cboHoaDon
             // 
             this.cboHoaDon.FormattingEnabled = true;
-            this.cboHoaDon.Location = new System.Drawing.Point(150, 15);
+            this.cboHoaDon.Location = new System.Drawing.Point(181, 12);
             this.cboHoaDon.Name = "cboHoaDon";
             this.cboHoaDon.Size = new System.Drawing.Size(121, 37);
             this.cboHoaDon.TabIndex = 1;
@@ -71,9 +71,9 @@
             // 
             // btnIn
             // 
-            this.btnIn.Location = new System.Drawing.Point(499, 15);
+            this.btnIn.Location = new System.Drawing.Point(473, 15);
             this.btnIn.Name = "btnIn";
-            this.btnIn.Size = new System.Drawing.Size(111, 34);
+            this.btnIn.Size = new System.Drawing.Size(137, 34);
             this.btnIn.TabIndex = 2;
             this.btnIn.Text = "In hóa đơn";
             this.btnIn.UseVisualStyleBackColor = true;
@@ -81,9 +81,9 @@
             // 
             // reportViewer1
             // 
-            reportDataSource1.Name = "DataSet1";
-            reportDataSource1.Value = this.INCHITIETBindingSource;
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
+            reportDataSource2.Name = "DataSet1";
+            reportDataSource2.Value = this.INCHITIETBindingSource;
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource2);
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "WindowsFormsApplication1.Report1.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(30, 86);
             this.reportViewer1.Name = "reportViewer1";

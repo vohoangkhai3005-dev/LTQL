@@ -52,6 +52,12 @@ namespace WindowsFormsApplication1
                 Luoi_KHACHHANG.Columns[3].HeaderText = "Điện Thoại";
                 Luoi_KHACHHANG.Columns[3].Width = 120;
 
+                Luoi_KHACHHANG.Columns[4].HeaderText = "Email";
+                Luoi_KHACHHANG.Columns[4].Width = 180;
+
+                Luoi_KHACHHANG.Columns[5].HeaderText = "Điểm Tích Lũy";
+                Luoi_KHACHHANG.Columns[5].Width = 70;
+
                 Luoi_KHACHHANG.EnableHeadersVisualStyles = false;
                 Luoi_KHACHHANG.ColumnHeadersDefaultCellStyle.BackColor = Color.Cyan;
             }
@@ -62,6 +68,9 @@ namespace WindowsFormsApplication1
             txtTKH.Text = Luoi_KHACHHANG.CurrentRow.Cells["TENKH"].Value.ToString();
             txtDC.Text = Luoi_KHACHHANG.CurrentRow.Cells["DIACHI"].Value.ToString();
             txtDT.Text = Luoi_KHACHHANG.CurrentRow.Cells["DIENTHOAI"].Value.ToString();
+            txtEmail.Text = Luoi_KHACHHANG.CurrentRow.Cells["EMAIL"].Value.ToString();
+
+            lblDiemTL.Text = Luoi_KHACHHANG.CurrentRow.Cells["DIEMTICHLUY"].Value.ToString();
         }
         private void ThemKhachHang()
         {
@@ -72,7 +81,9 @@ namespace WindowsFormsApplication1
                 "N'" + txtMKH.Text.Trim() + "'," +
                 "N'" + txtTKH.Text.Trim() + "'," +
                 "N'" + txtDC.Text.Trim() + "'," +
-                "'" + txtDT.Text.Trim() + "')";
+                "'" + txtDT.Text.Trim() + "'," +
+                "'" + txtEmail.Text.Trim() + "'," +
+                "0)";
 
             try
             {
@@ -132,6 +143,13 @@ namespace WindowsFormsApplication1
                 return false;
             }
 
+            if (string.IsNullOrWhiteSpace(txtEmail.Text))
+            {
+                MessageBox.Show("Vui lòng nhập Email!");
+                txtEmail.Focus();
+                return false;
+            }
+
             return true;
         }
         private void btnThem_Click(object sender, EventArgs e)
@@ -144,7 +162,7 @@ namespace WindowsFormsApplication1
             panelKHACHHANG.Enabled = true;
 
             ResetText();
-
+            lblDiemTL.Text = "0";
             txtMKH.Focus();
 
             btnThem.Enabled = false;
@@ -206,6 +224,7 @@ namespace WindowsFormsApplication1
                     "TENKH = N'" + txtTKH.Text + "', " +
                     "DIACHI = N'" + txtDC.Text + "', " +
                     "DIENTHOAI = '" + txtDT.Text + "' " +
+                    "EMAIL = '" + txtEmail.Text + "' " +
                     "WHERE MAKH = '" + txtMKH.Text + "'";
 
                 try
@@ -273,6 +292,9 @@ namespace WindowsFormsApplication1
             txtTKH.Text = "";
             txtDC.Text = "";
             txtDT.Text = "";
+            txtEmail.Text = "";
+
+            lblDiemTL.Text = "0";
         }
 
         private void btnThoat_Click(object sender, EventArgs e)
@@ -283,7 +305,7 @@ namespace WindowsFormsApplication1
                         MessageBoxIcon.Question)
         == DialogResult.Yes)
             {
-                Application.Exit();
+                this.Close();
             }
         }
     }

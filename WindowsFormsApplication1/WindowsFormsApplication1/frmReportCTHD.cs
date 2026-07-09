@@ -25,7 +25,7 @@ namespace WindowsFormsApplication1
         private void frmReportCTHD_Load(object sender, EventArgs e)
         {
             HAMXULY.Connect();
-            string sql = "SELECT * FROM HOADON";
+            string sql = "SELECT MAHD FROM HOADON ORDER BY MAHD ASC";
             HAMXULY.FillCombo(sql, cboHoaDon, "MAHD", "MAHD");
 
             

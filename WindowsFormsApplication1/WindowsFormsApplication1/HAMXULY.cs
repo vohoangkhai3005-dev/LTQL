@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 using System.Data.SqlClient;
 using System.Data;
 using System.Windows.Forms;
@@ -102,7 +101,46 @@ namespace WindowsFormsApplication1
         //Lưu tài khoản đang đăng nhập
         public static string TaiKhoanDangNhap = "";
     }
+    //============================================
+    public static DataTable GetDataTable(string sql, params SqlParameter[] parameters)
+    {
+        using (SqlConnection conn = new SqlConnection(connectionString))
+        {
+            SqlDataAdapter da = new SqlDataAdapter(sql, conn);
+            if (parameters != null && parameters.Length > 0)
+                da.SelectCommand.Parameters.AddRange(parameters);
 
-   
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            return dt;
+        }
+    }
+
+    public static int ExecuteNonQuery(string sql, params SqlParameter[] parameters)
+    {
+        using (SqlConnection conn = new SqlConnection(connectionString))
+        {
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            if (parameters != null && parameters.Length > 0)
+                cmd.Parameters.AddRange(parameters);
+
+            conn.Open();
+            return cmd.ExecuteNonQuery();
+        }
+    }
+
+    public static object ExecuteScalar(string sql, params SqlParameter[] parameters)
+    {
+        using (SqlConnection conn = new SqlConnection(connectionString))
+        {
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            if (parameters != null && parameters.Length > 0)
+                cmd.Parameters.AddRange(parameters);
+
+            conn.Open();
+            return cmd.ExecuteScalar();
+        }
+    }
+
 
 }
