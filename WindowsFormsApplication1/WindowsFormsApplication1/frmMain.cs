@@ -178,6 +178,9 @@ namespace WindowsFormsApplication1
             // Tăng khoảng cách chữ Font
             menuStrip1.RenderMode = ToolStripRenderMode.System;
             new Font("Segoe UI", 10, FontStyle.Bold);
+
+
+            
         }
         // danh mục san phẩm
         private void Mncl_Click(object sender, EventArgs e)
@@ -230,9 +233,7 @@ namespace WindowsFormsApplication1
 
         private void Mncthd_Click(object sender, EventArgs e)
         {
-            frmCTHD f = new frmCTHD();
-
-            f.Show();
+            
         }
 
         private void Mnqp_Click(object sender, EventArgs e)

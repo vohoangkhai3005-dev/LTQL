@@ -12,6 +12,8 @@ namespace WindowsFormsApplication1
 {
     public partial class frmReportCTHD : Form
     {
+
+        public string MAHD;
         public frmReportCTHD()
         {
             InitializeComponent();

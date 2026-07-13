@@ -75,7 +75,7 @@
             // 
             this.btnDN.Location = new System.Drawing.Point(134, 132);
             this.btnDN.Name = "btnDN";
-            this.btnDN.Size = new System.Drawing.Size(102, 32);
+            this.btnDN.Size = new System.Drawing.Size(116, 32);
             this.btnDN.TabIndex = 4;
             this.btnDN.Text = "Đăng nhập";
             this.btnDN.UseVisualStyleBackColor = true;

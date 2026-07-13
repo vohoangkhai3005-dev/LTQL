@@ -44,6 +44,8 @@ namespace WindowsFormsApplication1
         }
         private void btnDN_Click(object sender, EventArgs e)
         {
+
+            
             if (kiemtrathongtin())
             {
                 //kn csdl
@@ -55,15 +57,22 @@ namespace WindowsFormsApplication1
                 frmMain frmM = new frmMain();
 
 
+                string NHOMQUYEN = "";
+                string IDUSER = "";
 
-                if (HAMXULY.Truyvan(sql1, dtlg))
-                {
-                    HAMXULY.TaiKhoanDangNhap = TAIKHOANG;
+                
 
-                    string NHOMQUYEN = dtlg.Rows[0]["NHOM"].ToString().Trim();
-                    
-                    string IDUSER = dtlg.Rows[0]["IDUSER"].ToString().Trim();
-                    if (NHOMQUYEN == "Admin")
+                    if (HAMXULY.Truyvan(sql1, dtlg))
+                    {
+                        
+
+                        HAMXULY.TaiKhoanDangNhap = TAIKHOANG;
+
+                        NHOMQUYEN = dtlg.Rows[0]["NHOM"].ToString().Trim();
+                        IDUSER = dtlg.Rows[0]["IDUSER"].ToString().Trim();
+
+                        
+                    if (NHOMQUYEN == "SuperAdmin")
                     {
                         frmM.MnHethong.Enabled = true;
                         frmM.MnThemTK.Enabled = true;
@@ -87,18 +96,16 @@ namespace WindowsFormsApplication1
                         frmM.MnBC.Enabled = true;
                         frmM.MnLBC.Enabled = true;
                         frmM.MnTG.Enabled = true;
-                        
+
                         frmM.MnQP.Enabled = true;
                         frmM.MnPNK.Enabled = true;
-
-                        // Kiểm tra sau khi đã bật
-                        //MessageBox.Show(frmM.MnThemTK.Enabled.ToString());
 
                         frmM.Show();
                         this.Hide();
                     }
                     else
                     {
+                        // User -> phân quyền theo bảng VAITRO
                         string sql3 = "SELECT * FROM VAITRO WHERE IDUSER = '" + IDUSER + "'";
                         DataTable dtPQ = new DataTable();
 

@@ -30,11 +30,15 @@ GO
 INSERT INTO TAIKHOAN
 (HOTEN, TAIKHOANG, MATKHAU, NHOM)
 VALUES
-('VOTHANHNGHOIA', 'NGHIA', '123', 'Admin'),
-('VOHOANGKHAI', 'KHAI', '123', 'Admin'),
-('NHATBANG', 'BANG', '123', 'Admin'),
-('Binh', 'VANBINH', '123', 'User'),
-('HoaI', 'MINHHOAI', '123', 'User');
+(N'Võ Thành Nghĩa', 'NGHIA', '123', 'SuperAdmin'),
+(N'Võ Hoàng Khải', 'KHAI', '123', 'SuperAdmin'),
+(N'Nhật Bằng', 'BANG', '123', 'SuperAdmin'),
+
+(N'Nguyễn Văn Admin', 'ADMIN01', '123', 'Admin'),
+(N'Trần Thị Admin', 'ADMIN02', '123', 'Admin'),
+
+(N'Trần Văn Bình', 'VANBINH', '123', 'User'),
+(N'Nguyễn Minh Hoài', 'MINHHOAI', '123', 'User');
 GO
 
 /*====================================================
@@ -96,20 +100,51 @@ GO
 
 INSERT INTO VAITRO (IDUSER, IDCN)
 VALUES
-(2,1),
-(2,2),
-(2,3),
-(2,4),
-(2,5),
-(3,6),
-(3,7),
-(3,8),
-(3,9),
-(3,10),
+-- SuperAdmin (IDUSER = 1) để vài quyền tượng trưng
 (1,1),
 (1,2),
+
+-- Admin01 (IDUSER = 4)
+(4,2),
+(4,4),
+(4,6),
+(4,7),
+(4,8),
+(4,9),
+(4,10),
+(4,11),
 (4,12),
-(4,13);
+(4,13),
+(4,14),
+
+-- Admin02 (IDUSER = 5)
+(5,2),
+(5,4),
+(5,6),
+(5,7),
+(5,8),
+(5,9),
+(5,10),
+(5,11),
+(5,12),
+(5,13),
+(5,14),
+
+-- User VANBINH (IDUSER = 6)
+(6,2),
+(6,7),
+(6,8),
+(6,9),
+(6,10),
+(6,11),
+
+-- User MINHHOAI (IDUSER = 7)
+(7,2),
+(7,7),
+(7,8),
+(7,9),
+(7,10),
+(7,11);
 GO
 
 /*====================================================

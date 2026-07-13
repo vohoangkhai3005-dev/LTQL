@@ -110,7 +110,9 @@ namespace WindowsFormsApplication1
         {
             DataTable dt = new DataTable();
 
-            string sql = "SELECT IDUSER,HOTEN,TAIKHOANG,NHOM FROM TAIKHOAN";
+            string sql = "SELECT IDUSER,HOTEN,TAIKHOANG,NHOM " +
+                 "FROM TAIKHOAN " +
+                 "WHERE NHOM <> 'SuperAdmin'";
 
             if (HAMXULY.Truyvan(sql, dt))
             {

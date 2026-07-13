@@ -14,7 +14,7 @@ namespace WindowsFormsApplication1
     class HAMXULY
     {
 
-        
+
         //khai bao biến toàn cục
         public static SqlConnection conn;
 
@@ -22,14 +22,14 @@ namespace WindowsFormsApplication1
         public static void Connect()
         {
             conn = new SqlConnection();
-            //conn.ConnectionString = @"Data Source=DESKTOP-NA08D0R\SQLEXPRESS;Initial Catalog=QLBH;User ID=sa;Password=123456";
+            conn.ConnectionString = @"Data Source=DESKTOP-NA08D0R\SQLEXPRESS;Initial Catalog=QLBH;User ID=sa;Password=123456";
             //conn.ConnectionString = @"Data Source=2C01\SQLEXPRESS;Initial Catalog=QLBH;User ID=sa;Password=123456";
-            conn.ConnectionString = @"Data Source=KHAI\KHAI;Initial Catalog=QLBH;User ID=sa;Password=123456";
+            //conn.ConnectionString = @"Data Source=KHAI\KHAI;Initial Catalog=QLBH;User ID=sa;Password=123456";
             conn.Open();// mở kết nối
         }
         public static void DisConnect()
         {
-            if(conn.State == ConnectionState.Open)
+            if (conn.State == ConnectionState.Open)
             {
                 conn.Close();
                 conn.Dispose();
@@ -54,8 +54,8 @@ namespace WindowsFormsApplication1
                 MessageBox.Show(ex.Message, "Thông báo");
 
             }
-            return kq;  
-        }  
+            return kq;
+        }
         //hàm run sql
         public static void RunSQL(string sql)
         {
@@ -67,7 +67,7 @@ namespace WindowsFormsApplication1
             {
                 cmd.ExecuteNonQuery();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
 
@@ -87,7 +87,7 @@ namespace WindowsFormsApplication1
         //LẤY GIÁ TRỊ TỪ DATAGRIDVIEW LÊN COMBOBOX
         public static string GetFieldValues(string sql)
         {
-            
+
             string ma = "";
             SqlCommand cmd = new SqlCommand(sql, conn);
             SqlDataReader reader;
@@ -100,47 +100,9 @@ namespace WindowsFormsApplication1
 
         //Lưu tài khoản đang đăng nhập
         public static string TaiKhoanDangNhap = "";
+
+        //============================================
+        
     }
-    //============================================
-    public static DataTable GetDataTable(string sql, params SqlParameter[] parameters)
-    {
-        using (SqlConnection conn = new SqlConnection(connectionString))
-        {
-            SqlDataAdapter da = new SqlDataAdapter(sql, conn);
-            if (parameters != null && parameters.Length > 0)
-                da.SelectCommand.Parameters.AddRange(parameters);
-
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            return dt;
-        }
-    }
-
-    public static int ExecuteNonQuery(string sql, params SqlParameter[] parameters)
-    {
-        using (SqlConnection conn = new SqlConnection(connectionString))
-        {
-            SqlCommand cmd = new SqlCommand(sql, conn);
-            if (parameters != null && parameters.Length > 0)
-                cmd.Parameters.AddRange(parameters);
-
-            conn.Open();
-            return cmd.ExecuteNonQuery();
-        }
-    }
-
-    public static object ExecuteScalar(string sql, params SqlParameter[] parameters)
-    {
-        using (SqlConnection conn = new SqlConnection(connectionString))
-        {
-            SqlCommand cmd = new SqlCommand(sql, conn);
-            if (parameters != null && parameters.Length > 0)
-                cmd.Parameters.AddRange(parameters);
-
-            conn.Open();
-            return cmd.ExecuteScalar();
-        }
-    }
-
 
 }
