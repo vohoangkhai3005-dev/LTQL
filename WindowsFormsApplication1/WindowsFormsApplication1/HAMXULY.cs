@@ -7,6 +7,8 @@ using System.Data.SqlClient;
 using System.Data;
 using System.Windows.Forms;
 
+using System.Security.Cryptography;
+
 
 namespace WindowsFormsApplication1
 {
@@ -102,6 +104,25 @@ namespace WindowsFormsApplication1
         public static string TaiKhoanDangNhap = "";
 
         //============================================
+
+        //==================== mã hóa mật khẩu ========================
+        public static string MaHoaSHA256(string input)
+        {
+            using (SHA256 sha = SHA256.Create())
+            {
+                byte[] bytes = Encoding.UTF8.GetBytes(input);
+                byte[] hash = sha.ComputeHash(bytes);
+
+                StringBuilder sb = new StringBuilder();
+
+                foreach (byte b in hash)
+                {
+                    sb.Append(b.ToString("x2"));
+                }
+
+                return sb.ToString();
+            }
+        }
         
     }
 
