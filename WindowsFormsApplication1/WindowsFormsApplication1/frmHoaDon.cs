@@ -20,6 +20,8 @@ namespace WindowsFormsApplication1
 
         private void frmHoaDon_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'qlbhDataSet.HOADON' table. You can move, or remove it, as needed.
+            this.hOADONTableAdapter.Fill(this.qlbhDataSet.HOADON);
             HAMXULY.Connect();
 
             panelHoaDon.Enabled = false;
@@ -58,8 +60,11 @@ namespace WindowsFormsApplication1
                 Luoi_HOADON.Columns[2].HeaderText = "Mã Khách Hàng";
                 Luoi_HOADON.Columns[2].Width = 120;
 
-                Luoi_HOADON.Columns[3].HeaderText = "Ngày Bán";
+                Luoi_HOADON.Columns[3].HeaderText = "Ngày Lập Hóa Đơn";
                 Luoi_HOADON.Columns[3].Width = 150;
+
+                Luoi_HOADON.Columns[4].HeaderText = "Tổng Tiền";
+                Luoi_HOADON.Columns[4].Width = 130;
 
                 Luoi_HOADON.EnableHeadersVisualStyles = false;
                 Luoi_HOADON.ColumnHeadersDefaultCellStyle.BackColor = Color.Cyan;
@@ -104,7 +109,7 @@ namespace WindowsFormsApplication1
             MAKH = Luoi_HOADON.CurrentRow.Cells["MAKH"].Value.ToString();
             sql = "SELECT TENKH FROM KHACHHANG WHERE MAKH=N'" + MAKH + "'";
             cboKH.Text = HAMXULY.GetFieldValues(sql);
-            dtpNgayLap.Text = Luoi_HOADON.CurrentRow.Cells["NGAYBAN"].Value.ToString();
+            dtpNgayLap.Text = Luoi_HOADON.CurrentRow.Cells["NGAYLAP"].Value.ToString();
         }
 
         private void TimTheoMaHD()
@@ -140,7 +145,7 @@ namespace WindowsFormsApplication1
 
             string ngay = dtpNgayLap.Value.ToString("yyyy-MM-dd");
 
-            string sql = "SELECT * FROM HOADON WHERE CONVERT(date, NGAYBAN)='" + ngay + "'";
+            string sql = "SELECT * FROM HOADON WHERE CONVERT(date, NGAYLAP)='" + ngay + "'";
 
             if (HAMXULY.Truyvan(sql, dt))
             {
@@ -183,6 +188,58 @@ namespace WindowsFormsApplication1
         private void Luoi_HOADON_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             btnXemCTHD.PerformClick();
+        }
+
+        private void btnThem_Click(object sender, EventArgs e)
+        {
+            string sql =
+            @"INSERT INTO HOADON
+            (MAHD,MANV,MAKH,NGAYLAP,TONGTIEN)
+            VALUES
+            (
+            N'" + txtMHD.Text.Trim() + @"',
+            N'" + cboNV.SelectedValue.ToString() + @"',
+            N'" + cboKH.SelectedValue.ToString() + @"',
+            '" + dtpNgayLap.Value.ToString("yyyy-MM-dd") + @"',
+            " + txtTongTien.Text + ")";
+
+            HAMXULY.RunSQL(sql);
+            MessageBox.Show("Bạn đã thêm thành công", "Thông báo");
+            ShowHoaDon();
+            ResetText();
+        }
+
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+            string sql =
+            @"UPDATE HOADON SET
+
+            MANV=N'" + cboNV.SelectedValue.ToString() + @"',
+
+            MAKH=N'" + cboKH.SelectedValue.ToString() + @"',
+
+            NGAYLAP='" + dtpNgayLap.Value.ToString("yyyy-MM-dd") + @"',
+
+            TONGTIEN=" + txtTongTien.Text + @"
+
+            WHERE MAHD=N'" + txtMHD.Text + "'";
+            MessageBox.Show("Bạn đã sửa thành công", "Thông báo");
+            ShowHoaDon();
+        }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            string sql1 =
+            "DELETE FROM CHITIETHOADON WHERE MAHD=N'" + txtMHD.Text + "'";
+
+            HAMXULY.RunSQL(sql1);
+
+            string sql2 =
+            "DELETE FROM HOADON WHERE MAHD=N'" + txtMHD.Text + "'";
+
+            HAMXULY.RunSQL(sql2);
+            MessageBox.Show("Bạn đã xóa thành công", "Thông báo");
+            ShowHoaDon();
         }
     }
 }

@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.panelKHACHHANG = new System.Windows.Forms.Panel();
+            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.txtDT = new System.Windows.Forms.TextBox();
             this.txtDC = new System.Windows.Forms.TextBox();
             this.txtTKH = new System.Windows.Forms.TextBox();
@@ -44,18 +46,12 @@
             this.btnLuu = new System.Windows.Forms.Button();
             this.btnHuy = new System.Windows.Forms.Button();
             this.btnThoat = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtEmail = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.lblDiemTL = new System.Windows.Forms.Label();
             this.panelKHACHHANG.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Luoi_KHACHHANG)).BeginInit();
             this.SuspendLayout();
             // 
             // panelKHACHHANG
             // 
-            this.panelKHACHHANG.Controls.Add(this.lblDiemTL);
-            this.panelKHACHHANG.Controls.Add(this.label6);
             this.panelKHACHHANG.Controls.Add(this.txtEmail);
             this.panelKHACHHANG.Controls.Add(this.label5);
             this.panelKHACHHANG.Controls.Add(this.txtDT);
@@ -68,8 +64,24 @@
             this.panelKHACHHANG.Controls.Add(this.label1);
             this.panelKHACHHANG.Location = new System.Drawing.Point(14, 12);
             this.panelKHACHHANG.Name = "panelKHACHHANG";
-            this.panelKHACHHANG.Size = new System.Drawing.Size(739, 186);
+            this.panelKHACHHANG.Size = new System.Drawing.Size(739, 166);
             this.panelKHACHHANG.TabIndex = 0;
+            // 
+            // txtEmail
+            // 
+            this.txtEmail.Location = new System.Drawing.Point(481, 118);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(227, 34);
+            this.txtEmail.TabIndex = 9;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(401, 121);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(74, 29);
+            this.label5.TabIndex = 8;
+            this.label5.Text = "Email";
             // 
             // txtDT
             // 
@@ -138,18 +150,17 @@
             // Luoi_KHACHHANG
             // 
             this.Luoi_KHACHHANG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Luoi_KHACHHANG.Location = new System.Drawing.Point(14, 249);
+            this.Luoi_KHACHHANG.Location = new System.Drawing.Point(14, 210);
             this.Luoi_KHACHHANG.Name = "Luoi_KHACHHANG";
             this.Luoi_KHACHHANG.RowHeadersWidth = 51;
             this.Luoi_KHACHHANG.RowTemplate.Height = 24;
             this.Luoi_KHACHHANG.Size = new System.Drawing.Size(739, 140);
             this.Luoi_KHACHHANG.TabIndex = 1;
-            this.Luoi_KHACHHANG.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.Luoi_KHACHHANG.Click += new System.EventHandler(this.Luoi_KHACHHANG_Click);
             // 
             // btnThem
             // 
-            this.btnThem.Location = new System.Drawing.Point(16, 436);
+            this.btnThem.Location = new System.Drawing.Point(16, 398);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(103, 40);
             this.btnThem.TabIndex = 2;
@@ -159,7 +170,7 @@
             // 
             // btnXoa
             // 
-            this.btnXoa.Location = new System.Drawing.Point(142, 436);
+            this.btnXoa.Location = new System.Drawing.Point(142, 398);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(103, 40);
             this.btnXoa.TabIndex = 3;
@@ -169,7 +180,7 @@
             // 
             // btnSua
             // 
-            this.btnSua.Location = new System.Drawing.Point(268, 436);
+            this.btnSua.Location = new System.Drawing.Point(268, 398);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(103, 40);
             this.btnSua.TabIndex = 4;
@@ -179,7 +190,7 @@
             // 
             // btnLuu
             // 
-            this.btnLuu.Location = new System.Drawing.Point(394, 436);
+            this.btnLuu.Location = new System.Drawing.Point(394, 398);
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.Size = new System.Drawing.Size(103, 40);
             this.btnLuu.TabIndex = 5;
@@ -189,7 +200,7 @@
             // 
             // btnHuy
             // 
-            this.btnHuy.Location = new System.Drawing.Point(520, 436);
+            this.btnHuy.Location = new System.Drawing.Point(520, 398);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(103, 40);
             this.btnHuy.TabIndex = 6;
@@ -199,7 +210,7 @@
             // 
             // btnThoat
             // 
-            this.btnThoat.Location = new System.Drawing.Point(646, 436);
+            this.btnThoat.Location = new System.Drawing.Point(646, 398);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(103, 40);
             this.btnThoat.TabIndex = 7;
@@ -207,45 +218,11 @@
             this.btnThoat.UseVisualStyleBackColor = true;
             this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(401, 121);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(74, 29);
-            this.label5.TabIndex = 8;
-            this.label5.Text = "Email";
-            // 
-            // txtEmail
-            // 
-            this.txtEmail.Location = new System.Drawing.Point(481, 118);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(227, 34);
-            this.txtEmail.TabIndex = 9;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(19, 121);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(172, 29);
-            this.label6.TabIndex = 10;
-            this.label6.Text = "Điểm Tích Lũy:";
-            // 
-            // lblDiemTL
-            // 
-            this.lblDiemTL.AutoSize = true;
-            this.lblDiemTL.Location = new System.Drawing.Point(192, 121);
-            this.lblDiemTL.Name = "lblDiemTL";
-            this.lblDiemTL.Size = new System.Drawing.Size(39, 29);
-            this.lblDiemTL.TabIndex = 11;
-            this.lblDiemTL.Text = "00";
-            // 
             // frmKhachHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 29F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(779, 519);
+            this.ClientSize = new System.Drawing.Size(779, 485);
             this.Controls.Add(this.btnThoat);
             this.Controls.Add(this.btnHuy);
             this.Controls.Add(this.btnLuu);
@@ -285,8 +262,6 @@
         private System.Windows.Forms.Button btnLuu;
         private System.Windows.Forms.Button btnHuy;
         private System.Windows.Forms.Button btnThoat;
-        private System.Windows.Forms.Label lblDiemTL;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.Label label5;
     }
