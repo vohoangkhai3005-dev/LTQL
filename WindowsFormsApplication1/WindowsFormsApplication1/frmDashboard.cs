@@ -134,7 +134,7 @@ namespace WindowsFormsApplication1
             if (HAMXULY.Truyvan(sql, dt))
             {
                 lblDoanhThu.Text =
-                    "Doanh thu hôm nay: " +
+                    "Doanh thu hôm nay: \n " +
                     Convert.ToDecimal(dt.Rows[0][0]).ToString("N0") +
                     " VNĐ";
             }
@@ -151,7 +151,7 @@ namespace WindowsFormsApplication1
             HAMXULY.Truyvan(sql, dt);
 
             lblHoaDon.Text =
-                "Số hóa đơn hôm nay: " +
+                "Số hóa đơn hôm nay: \n " +
                 dt.Rows[0][0].ToString();
         }
         private void ShowTongSanPham()
@@ -164,7 +164,7 @@ namespace WindowsFormsApplication1
             HAMXULY.Truyvan(sql, dt);
 
             lblSanPham.Text =
-                "Tổng sản phẩm: " +
+                "Tổng sản phẩm: \n" +
                 dt.Rows[0][0].ToString();
         }
         private void ShowTongKhachHang()
@@ -177,7 +177,7 @@ namespace WindowsFormsApplication1
             HAMXULY.Truyvan(sql, dt);
 
             lblKhachHang.Text =
-                "Tổng khách hàng: " +
+                "Tổng khách hàng: \n " +
                 dt.Rows[0][0].ToString();
         }
         private void ShowSanPhamSapHet()

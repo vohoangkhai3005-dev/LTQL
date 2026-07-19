@@ -122,6 +122,16 @@ namespace WindowsFormsApplication1
             get { return MnPhieuNhap; }
             set { MnPhieuNhap = value; }
         }
+           public ToolStripMenuItem MnBH
+        {
+            get { return Mnbanhang; }
+            set { Mnbanhang = value; }
+        }
+        public ToolStripMenuItem Mnctpn
+        {
+            get { return MnCTPN; }
+            set { MnCTPN = value; }
+        }
 
         private void đổiMậtToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -295,6 +305,12 @@ namespace WindowsFormsApplication1
         {
             ChiTietPhieuNhap f = new ChiTietPhieuNhap();
             f.Show();
+        }
+
+        private void Mnbanhang_Click(object sender, EventArgs e)
+        {
+            frmBanHang F = new frmBanHang();
+            F.Show();
         }
     }
 }

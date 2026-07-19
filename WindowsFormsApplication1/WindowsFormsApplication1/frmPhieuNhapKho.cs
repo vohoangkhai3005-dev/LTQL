@@ -66,10 +66,63 @@ namespace WindowsFormsApplication1
             dgvCT.Columns["ThanhTien"].HeaderText = "Thành tiền";
             dgvCT.Columns["ThanhTien"].Width = 150;
 
-            dgvCT.DefaultCellStyle.Font = new Font("Segoe UI", 11);
-            dgvCT.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 11, FontStyle.Bold);
-            dgvCT.RowTemplate.Height = 32;
-            dgvCT.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            // Màu nền chung
+            dgvCT.BackgroundColor = Color.White;
+            dgvCT.BorderStyle = BorderStyle.None;
+
+            // Màu dòng thường
+            dgvCT.RowsDefaultCellStyle.BackColor =
+                Color.FromArgb(248, 250, 252);
+
+            dgvCT.RowsDefaultCellStyle.ForeColor =
+                Color.FromArgb(30, 41, 59);
+
+            // Màu dòng xen kẽ
+            dgvCT.AlternatingRowsDefaultCellStyle.BackColor =
+                Color.FromArgb(226, 232, 240);
+
+            // Màu khi chọn dòng
+            dgvCT.DefaultCellStyle.SelectionBackColor =
+                Color.FromArgb(59, 130, 246);
+
+            dgvCT.DefaultCellStyle.SelectionForeColor =
+                Color.White;
+
+            // Màu tiêu đề
+            dgvCT.EnableHeadersVisualStyles = false;
+
+            dgvCT.ColumnHeadersDefaultCellStyle.BackColor =
+                Color.FromArgb(15, 23, 42);
+
+            dgvCT.ColumnHeadersDefaultCellStyle.ForeColor =
+                Color.White;
+
+            dgvCT.ColumnHeadersDefaultCellStyle.SelectionBackColor =
+                Color.FromArgb(15, 23, 42);
+
+            // Font và chiều cao
+            dgvCT.DefaultCellStyle.Font =
+                new Font("Segoe UI", 11);
+
+            dgvCT.ColumnHeadersDefaultCellStyle.Font =
+                new Font("Segoe UI", 11, FontStyle.Bold);
+
+            dgvCT.RowTemplate.Height = 34;
+            dgvCT.ColumnHeadersHeight = 40;
+
+            // Đường kẻ nhẹ
+            dgvCT.CellBorderStyle =
+                DataGridViewCellBorderStyle.SingleHorizontal;
+
+            dgvCT.GridColor =
+                Color.FromArgb(203, 213, 225);
+
+            // Căn giữa tiêu đề
+            dgvCT.ColumnHeadersDefaultCellStyle.Alignment =
+                DataGridViewContentAlignment.MiddleCenter;
+
+            // Không hiện cột trống bên trái
+            dgvCT.RowHeadersVisible = false;
         }
 
         // hàm kiểm tra phiếu

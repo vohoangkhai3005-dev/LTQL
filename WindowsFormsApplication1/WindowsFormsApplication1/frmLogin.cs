@@ -137,6 +137,8 @@ namespace WindowsFormsApplication1
                         frmM.MnQP.Enabled = true;
                         frmM.MnPNK.Enabled = true;
 
+                        frmM.MnBH.Enabled = true;
+                        frmM.Mnctpn.Enabled = true;
                         frmM.Show();
                         this.Hide();
                     }
@@ -275,6 +277,10 @@ namespace WindowsFormsApplication1
         {
             
         }
-       
+
+        private void btnThoat_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
