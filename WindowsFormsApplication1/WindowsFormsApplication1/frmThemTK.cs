@@ -46,6 +46,7 @@ namespace WindowsFormsApplication1
         {
             HAMXULY.Connect();
 
+            cboNhom.Items.Add("SuperAdmin");
             cboNhom.Items.Add("Admin");
             cboNhom.Items.Add("User");
 

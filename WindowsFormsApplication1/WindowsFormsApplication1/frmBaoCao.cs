@@ -322,6 +322,27 @@ namespace WindowsFormsApplication1
 
         private void button2_Click(object sender, EventArgs e)
         {
+            // Kiểm tra chọn Top
+            if (string.IsNullOrWhiteSpace(cboTop.Text))
+            {
+                MessageBox.Show("Vui lòng chọn số lượng Top sản phẩm!",
+                                "Thông báo",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
+                cboTop.Focus();
+                return;
+            }
+
+            // Kiểm tra khoảng thời gian
+            if (dtpTuNgayTop.Value > dtpDenNgayTop.Value)
+            {
+                MessageBox.Show("Ngày bắt đầu phải nhỏ hơn hoặc bằng ngày kết thúc!",
+                                "Thông báo",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
+                return;
+            }
+
             DataTable dt = new DataTable();
 
             HAMXULY.Connect();
@@ -338,28 +359,29 @@ namespace WindowsFormsApplication1
       INNER JOIN HOADON HD
       ON CT.MAHD = HD.MAHD
       WHERE HD.NGAYLAP BETWEEN '" +
-              dtpTuNgayTop.Value.ToString("yyyy-MM-dd") +
-              "' AND '" +
-              dtpDenNgayTop.Value.ToString("yyyy-MM-dd") +
-              @"'
+                  dtpTuNgayTop.Value.ToString("yyyy-MM-dd") +
+                  "' AND '" +
+                  dtpDenNgayTop.Value.ToString("yyyy-MM-dd") +
+                  @"'
       GROUP BY SP.MASP, SP.TENSP
       ORDER BY SOLUONGBAN DESC";
 
-            if (HAMXULY.Truyvan(sql, dt))
-            {
-                dgvTopSanPham.DataSource = dt;
+            HAMXULY.Truyvan(sql, dt);
 
-                TinhTongDoanhThuTop();
-            }
-            if (cboTop.Text == "")
+            if (dt.Rows.Count == 0)
             {
-                MessageBox.Show("Vui lòng chọn số lượng Top sản phẩm!",
+                MessageBox.Show("Không có sản phẩm nào trong khoảng thời gian này!",
                                 "Thông báo",
                                 MessageBoxButtons.OK,
                                 MessageBoxIcon.Information);
-                cboTop.Focus();
+
+                dgvTopSanPham.DataSource = null;
+                lblTongDoanhThuTop.Text = "Tổng doanh thu Top: 0 VNĐ";
                 return;
             }
+
+            dgvTopSanPham.DataSource = dt;
+            TinhTongDoanhThuTop();
         }
         private void TinhTongDoanhThuTop()
         {
@@ -567,6 +589,45 @@ namespace WindowsFormsApplication1
         {
             printPreviewDialog1.Document = printDocument1;
             printPreviewDialog1.ShowDialog();
+        }
+
+        private void btnHuy_Click(object sender, EventArgs e)
+        {
+            if (tabControl1.SelectedIndex == 0)
+            {
+                // Tab Doanh Thu
+                dgvDoanhThu.DataSource = null;
+                lblTongDoanhThu.Text = "Tổng doanh thu: 0 VNĐ";
+
+                rdoNgay.Checked = false;
+                rdoThang.Checked = false;
+                dtpTuNgay.Value = DateTime.Now;
+                dtpDenNgay.Value = DateTime.Now;
+            }
+            else
+            {
+                // Tab Top Sản Phẩm
+                dgvTopSanPham.DataSource = null;
+                lblTongDoanhThuTop.Text = "Tổng doanh thu Top: 0 VNĐ";
+
+                cboTop.SelectedIndex = 0;
+                dtpTuNgayTop.Value = DateTime.Now;
+                dtpDenNgayTop.Value = DateTime.Now;
+            }
+        }
+
+        private void btnThoat_Click(object sender, EventArgs e)
+        {
+            DialogResult rs = MessageBox.Show(
+                "Bạn có muốn thoát khỏi màn hình báo cáo không?",
+                "Xác nhận",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+
+            if (rs == DialogResult.Yes)
+            {
+                this.Close();
+            }
         }
     }
 }

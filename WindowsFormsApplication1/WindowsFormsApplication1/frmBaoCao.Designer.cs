@@ -55,6 +55,8 @@
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.btnIn = new System.Windows.Forms.Button();
+            this.btnHuy = new System.Windows.Forms.Button();
+            this.btnThoat = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDoanhThu)).BeginInit();
@@ -307,7 +309,7 @@
             // 
             // btnIn
             // 
-            this.btnIn.Location = new System.Drawing.Point(334, 721);
+            this.btnIn.Location = new System.Drawing.Point(220, 727);
             this.btnIn.Name = "btnIn";
             this.btnIn.Size = new System.Drawing.Size(135, 47);
             this.btnIn.TabIndex = 2;
@@ -315,11 +317,37 @@
             this.btnIn.UseVisualStyleBackColor = true;
             this.btnIn.Click += new System.EventHandler(this.btnIn_Click);
             // 
+            // btnHuy
+            // 
+            this.btnHuy.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHuy.Location = new System.Drawing.Point(392, 729);
+            this.btnHuy.Margin = new System.Windows.Forms.Padding(4);
+            this.btnHuy.Name = "btnHuy";
+            this.btnHuy.Size = new System.Drawing.Size(95, 42);
+            this.btnHuy.TabIndex = 24;
+            this.btnHuy.Text = "🚫 Hủy";
+            this.btnHuy.UseVisualStyleBackColor = true;
+            this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
+            // 
+            // btnThoat
+            // 
+            this.btnThoat.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThoat.Location = new System.Drawing.Point(532, 729);
+            this.btnThoat.Margin = new System.Windows.Forms.Padding(4);
+            this.btnThoat.Name = "btnThoat";
+            this.btnThoat.Size = new System.Drawing.Size(98, 42);
+            this.btnThoat.TabIndex = 25;
+            this.btnThoat.Text = "Thoát";
+            this.btnThoat.UseVisualStyleBackColor = true;
+            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
+            // 
             // frmBaoCao
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 29F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(871, 780);
+            this.Controls.Add(this.btnThoat);
+            this.Controls.Add(this.btnHuy);
             this.Controls.Add(this.btnIn);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.label1);
@@ -369,5 +397,7 @@
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
         private System.Windows.Forms.Button btnIn;
         private System.Windows.Forms.Label lblTongDoanhThuTop;
+        private System.Windows.Forms.Button btnHuy;
+        private System.Windows.Forms.Button btnThoat;
     }
 }

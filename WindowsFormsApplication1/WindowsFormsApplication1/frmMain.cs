@@ -72,11 +72,7 @@ namespace WindowsFormsApplication1
              get { return Mnlhd; }
              set { Mnlhd = value; }
          }
-         public ToolStripMenuItem MnCTHD
-         {
-             get { return Mncthd; }
-             set { Mncthd = value; }
-         }
+         
          public ToolStripMenuItem MnTK
          {
              get { return Mntk; }
