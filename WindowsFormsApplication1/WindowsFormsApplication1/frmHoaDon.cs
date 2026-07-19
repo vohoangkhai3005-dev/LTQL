@@ -22,7 +22,7 @@ namespace WindowsFormsApplication1
         private void frmHoaDon_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'qlbhDataSet.HOADON' table. You can move, or remove it, as needed.
-            this.hOADONTableAdapter.Fill(this.qlbhDataSet.HOADON);
+            
             HAMXULY.Connect();
 
             panelHoaDon.Enabled = false;
