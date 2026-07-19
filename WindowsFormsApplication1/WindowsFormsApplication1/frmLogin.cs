@@ -136,7 +136,7 @@ namespace WindowsFormsApplication1
 
                         frmM.MnQP.Enabled = true;
                         frmM.MnPNK.Enabled = true;
-                        frmM.MnCTPN.Enabled = true;
+                      
 
                         frmM.MnBH.Enabled = true;
                         frmM.Mnctpn.Enabled = true;
@@ -234,7 +234,7 @@ namespace WindowsFormsApplication1
 
                                 if (row["IDCN"].ToString().Trim() == "16")
                                 {
-                                    frmM.MnCTPN.Enabled = true;
+                                    frmM.Mnctpn.Enabled = true;
                                 }
 
                                 if (row["IDCN"].ToString().Trim() == "17")
