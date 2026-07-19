@@ -81,7 +81,21 @@ namespace WindowsFormsApplication1
 
         public void ThemSanPhamVaoDon(string maSP, string tenSP, decimal donGia, int soLuong)
         {
-            // 
+            // Kiểm tra xem sản phẩm đã có trong giỏ chưa
+            foreach (DataGridViewRow row in dgvGioHang.Rows)
+            {
+                if (row.Cells["colMaSP"].Value.ToString() == maSP)
+                {
+                    // Tăng số lượng lên 1
+                    int sl = Convert.ToInt32(row.Cells["colSoLuong"].Value) + 1;
+                    row.Cells["colSoLuong"].Value = sl;
+                    row.Cells["colThanhTien"].Value = sl * donGia;
+                    TinhTien();
+                    return;
+                }
+            }
+
+            // Thêm mới 
             dgvGioHang.Rows.Add(maSP, tenSP, donGia, soLuong, donGia * soLuong);
             TinhTien();
         }
@@ -96,6 +110,11 @@ namespace WindowsFormsApplication1
 
             // lblTamTinh.Text = tong.ToString("N0");
             // lblThanhTien.Text = tong.ToString("N0");
+        }
+
+        internal void ThemSanPhamVaoDon(string maSP, string tenSP, decimal donGia)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -21,6 +21,8 @@ namespace WindowsFormsApplication1
 
         private void frmHoaDon_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'qlbhDataSet.HOADON' table. You can move, or remove it, as needed.
+            this.hOADONTableAdapter.Fill(this.qlbhDataSet.HOADON);
             HAMXULY.Connect();
 
             panelHoaDon.Enabled = false;
@@ -74,7 +76,7 @@ namespace WindowsFormsApplication1
                 Luoi_HOADON.Columns[2].HeaderText = "Mã Khách Hàng";
                 Luoi_HOADON.Columns[2].Width = 120;
 
-                Luoi_HOADON.Columns[3].HeaderText = "Ngày Bán";
+                Luoi_HOADON.Columns[3].HeaderText = "Ngày Lập Hóa Đơn";
                 Luoi_HOADON.Columns[3].Width = 150;
 
                 Luoi_HOADON.Columns[4].HeaderText = "Tổng tiền";

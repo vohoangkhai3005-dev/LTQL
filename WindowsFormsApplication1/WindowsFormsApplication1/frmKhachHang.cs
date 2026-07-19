@@ -12,20 +12,14 @@ namespace WindowsFormsApplication1
 {
     public partial class frmKhachHang : Form
     {
+        // Biến xác định đang Thêm hay Sửa
+        private bool isThem = false;
         public frmKhachHang()
         {
             InitializeComponent();
         }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void frmKhachHang_Load(object sender, EventArgs e)
         {
-            HAMXULY.Connect();
-
             panelKHACHHANG.Enabled = false;
             ShowKhachHang();
         }
@@ -46,11 +40,11 @@ namespace WindowsFormsApplication1
                 Luoi_KHACHHANG.Columns[1].HeaderText = "Tên Khách Hàng";
                 Luoi_KHACHHANG.Columns[1].Width = 150;
 
-                Luoi_KHACHHANG.Columns[2].HeaderText = "Địa Chỉ";
-                Luoi_KHACHHANG.Columns[2].Width = 150;
+                Luoi_KHACHHANG.Columns[2].HeaderText = "Số Điện Thoại";
+                Luoi_KHACHHANG.Columns[2].Width = 120;
 
-                Luoi_KHACHHANG.Columns[3].HeaderText = "Điện Thoại";
-                Luoi_KHACHHANG.Columns[3].Width = 120;
+                Luoi_KHACHHANG.Columns[3].HeaderText = "Địa Chỉ";
+                Luoi_KHACHHANG.Columns[3].Width = 180;
 
                 Luoi_KHACHHANG.Columns[4].HeaderText = "Email";
                 Luoi_KHACHHANG.Columns[4].Width = 180;
@@ -61,9 +55,12 @@ namespace WindowsFormsApplication1
                 Luoi_KHACHHANG.EnableHeadersVisualStyles = false;
                 Luoi_KHACHHANG.ColumnHeadersDefaultCellStyle.BackColor = Color.Cyan;
             }
+            HAMXULY.DisConnect();
         }
         private void Luoi_KHACHHANG_Click(object sender, EventArgs e)
         {
+            if (Luoi_KHACHHANG.CurrentRow == null)
+                return;
             txtMKH.Text = Luoi_KHACHHANG.CurrentRow.Cells["MAKH"].Value.ToString();
             txtTKH.Text = Luoi_KHACHHANG.CurrentRow.Cells["TENKH"].Value.ToString();
             txtDC.Text = Luoi_KHACHHANG.CurrentRow.Cells["DIACHI"].Value.ToString();
@@ -74,16 +71,17 @@ namespace WindowsFormsApplication1
         }
         private void ThemKhachHang()
         {
+            if (!KiemTraThongTin())
+                return;
             HAMXULY.Connect();
 
             string sqlInsert =
-                "INSERT INTO KHACHHANG(MAKH, TENKH, DIACHI, DIENTHOAI) VALUES(" +
+                "INSERT INTO KHACHHANG(MAKH,TENKH,SDT,DIACHI,EMAIL) VALUES(" +
                 "N'" + txtMKH.Text.Trim() + "'," +
                 "N'" + txtTKH.Text.Trim() + "'," +
-                "N'" + txtDC.Text.Trim() + "'," +
                 "'" + txtDT.Text.Trim() + "'," +
-                "'" + txtEmail.Text.Trim() + "'," +
-                "0)";
+                "N'" + txtDC.Text.Trim() + "'," +
+                "'" + txtEmail.Text.Trim() + "')";
 
             try
             {
@@ -92,9 +90,17 @@ namespace WindowsFormsApplication1
                 MessageBox.Show("Thêm khách hàng thành công!");
 
                 ShowKhachHang();
+                ResetText();
 
-                btnXoa.Enabled = true;
+                panelKHACHHANG.Enabled = false;
+
+                btnThem.Enabled = true;
                 btnSua.Enabled = true;
+                btnXoa.Enabled = true;
+
+                txtMKH.Enabled = true;
+
+                HAMXULY.DisConnect();
             }
             catch (Exception ex)
             {
@@ -152,13 +158,9 @@ namespace WindowsFormsApplication1
 
             return true;
         }
-        private void btnThem_Click(object sender, EventArgs e)
-        {
-   
-        }
-
         private void btnThem_Click_1(object sender, EventArgs e)
         {
+            isThem = true;
             panelKHACHHANG.Enabled = true;
 
             ResetText();
@@ -204,7 +206,7 @@ namespace WindowsFormsApplication1
                     ResetText();
                 }
 
-                HAMXULY.Connect();
+                HAMXULY.DisConnect();
             }
         }
         private void SuaKhachHang()
@@ -220,12 +222,12 @@ namespace WindowsFormsApplication1
             else
             {
                 string SqlUpdate =
-                   @"UPDATE KHACHHANG SET " +
-                    "TENKH = N'" + txtTKH.Text + "', " +
-                    "DIACHI = N'" + txtDC.Text + "', " +
-                    "DIENTHOAI = '" + txtDT.Text + "' " +
-                    "EMAIL = '" + txtEmail.Text + "' " +
-                    "WHERE MAKH = '" + txtMKH.Text + "'";
+                    "UPDATE KHACHHANG SET " +
+                    "TENKH=N'" + txtTKH.Text.Trim() + "'," +
+                    "SDT='" + txtDT.Text.Trim() + "'," +
+                    "DIACHI=N'" + txtDC.Text.Trim() + "'," +
+                    "EMAIL='" + txtEmail.Text.Trim() + "'" +
+                    " WHERE MAKH='" + txtMKH.Text.Trim() + "'";
 
                 try
                 {
@@ -241,6 +243,10 @@ namespace WindowsFormsApplication1
                     ShowKhachHang();
                     ResetText();
 
+                    panelKHACHHANG.Enabled = false;
+
+                    HAMXULY.DisConnect();
+
                     btnThem.Enabled = true;
                     btnXoa.Enabled = true;
                     btnSua.Enabled = true;
@@ -255,6 +261,11 @@ namespace WindowsFormsApplication1
         }
         private void btnSua_Click(object sender, EventArgs e)
         {
+            if (txtMKH.Text == "")
+            {
+                MessageBox.Show("Bạn chưa chọn khách hàng!");
+                return;
+            }
             panelKHACHHANG.Enabled = true;
 
             txtMKH.Enabled = false; // không cho sửa mã hàng
@@ -262,18 +273,16 @@ namespace WindowsFormsApplication1
             btnThem.Enabled = false;
             btnXoa.Enabled = false;
         }
-
         private void btnLuu_Click(object sender, EventArgs e)
         {
             if (!KiemTraThongTin())
                 return;
 
-            if (btnThem.Enabled == true)
+            if (isThem)
                 ThemKhachHang();
             else
                 SuaKhachHang();
         }
-
         private void btnHuy_Click(object sender, EventArgs e)
         {
             ResetText();
@@ -296,7 +305,6 @@ namespace WindowsFormsApplication1
 
            
         }
-
         private void btnThoat_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Bạn có muốn thoát chương trình không?",

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panelHoaDon = new System.Windows.Forms.Panel();
             this.cboHD = new System.Windows.Forms.ComboBox();
             this.dtpNgayLap = new System.Windows.Forms.DateTimePicker();
@@ -53,6 +54,8 @@
             this.Luoi_HOADON = new System.Windows.Forms.DataGridView();
             this.panelHoaDon.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Luoi_HOADON)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hOADONBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qlbhDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // panelHoaDon
@@ -308,6 +311,8 @@
             this.panelHoaDon.ResumeLayout(false);
             this.panelHoaDon.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Luoi_HOADON)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hOADONBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qlbhDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panelCTHD = new System.Windows.Forms.Panel();
             this.cboMH = new System.Windows.Forms.ComboBox();
             this.cboMHD = new System.Windows.Forms.ComboBox();
@@ -96,7 +97,7 @@
             // 
             // txtDG
             // 
-            this.txtDG.Location = new System.Drawing.Point(480, 56);
+            this.txtDG.Location = new System.Drawing.Point(480, 72);
             this.txtDG.Name = "txtDG";
             this.txtDG.Size = new System.Drawing.Size(225, 29);
             this.txtDG.TabIndex = 11;
@@ -111,7 +112,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(358, 61);
+            this.label5.Location = new System.Drawing.Point(358, 77);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(75, 24);
             this.label5.TabIndex = 4;
@@ -133,7 +134,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(88, 24);
             this.label3.TabIndex = 2;
-            this.label3.Text = "Mặt hàng";
+            this.label3.Text = "Sản phẩm";
             // 
             // label2
             // 

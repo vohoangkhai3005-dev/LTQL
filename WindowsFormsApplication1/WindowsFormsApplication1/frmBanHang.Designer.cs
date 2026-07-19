@@ -243,7 +243,7 @@ namespace WindowsFormsApplication1
             // 
             this.txtHoTen.Location = new System.Drawing.Point(20, 22);
             this.txtHoTen.Name = "txtHoTen";
-            this.txtHoTen.Size = new System.Drawing.Size(200, 30);
+            this.txtHoTen.Size = new System.Drawing.Size(249, 30);
             this.txtHoTen.TabIndex = 0;
             this.txtHoTen.Text = "Họ và Tên:";
             // 

@@ -76,30 +76,52 @@ namespace WindowsFormsApplication1
         }
         private void DoiMatKhau()
         {
-            string sql =
-                "SELECT * FROM TAIKHOAN WHERE TAIKHOANG=N'" +
-                txtTaiKhoan.Text +
-                "' AND MATKHAU=N'" +
-                txtMKCu.Text + "'";
+            // Lấy thông tin tài khoản
+            string sql = "SELECT * FROM TAIKHOAN WHERE TAIKHOANG = N'" +
+                         txtTaiKhoan.Text + "'";
 
             DataTable dt = new DataTable();
 
             if (!HAMXULY.Truyvan(sql, dt))
             {
-                MessageBox.Show("Mật khẩu cũ không đúng");
-                txtMKCu.Focus();
+                MessageBox.Show("Tài khoản không tồn tại");
                 return;
             }
 
-            sql =
-                "UPDATE TAIKHOAN SET MATKHAU=N'" +
-                txtMKMoi.Text +
-                "' WHERE TAIKHOANG=N'" +
-                txtTaiKhoan.Text + "'";
+            // Lấy mật khẩu trong CSDL
+            string mkDB = dt.Rows[0]["MATKHAU"].ToString().Trim();
+
+            // Kiểm tra mật khẩu cũ
+            if (mkDB.Length == 64) // Đã mã hóa SHA256
+            {
+                if (HAMXULY.MaHoaSHA256(txtMKCu.Text.Trim()) != mkDB)
+                {
+                    MessageBox.Show("Mật khẩu cũ không đúng");
+                    txtMKCu.Focus();
+                    return;
+                }
+            }
+            else // Chưa mã hóa
+            {
+                if (txtMKCu.Text.Trim() != mkDB)
+                {
+                    MessageBox.Show("Mật khẩu cũ không đúng");
+                    txtMKCu.Focus();
+                    return;
+                }
+            }
+
+            // Mã hóa mật khẩu mới trước khi lưu
+            string mkMoi = HAMXULY.MaHoaSHA256(txtMKMoi.Text.Trim());
+
+            sql = "UPDATE TAIKHOAN SET MATKHAU='" +
+                  mkMoi +
+                  "' WHERE TAIKHOANG=N'" +
+                  txtTaiKhoan.Text + "'";
 
             HAMXULY.RunSQL(sql);
 
-            MessageBox.Show("Đổi mật khẩu thành công");
+            MessageBox.Show("Đổi mật khẩu thành công!");
 
             ResetText();
         }

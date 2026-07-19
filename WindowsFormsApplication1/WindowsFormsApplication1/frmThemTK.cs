@@ -183,11 +183,13 @@ namespace WindowsFormsApplication1
         }
         private void ThemTaiKhoan()
         {
+            string mk = HAMXULY.MaHoaSHA256(txtMatKhau.Text.Trim());
+
             string sql =
                 "INSERT INTO TAIKHOAN(HOTEN,TAIKHOANG,MATKHAU,NHOM) VALUES(" +
                 "N'" + txtHoTen.Text.Trim() + "'," +
                 "N'" + txtTaiKhoan.Text.Trim() + "'," +
-                "N'" + txtMatKhau.Text.Trim() + "'," +
+                "N'" + mk + "'," +
                 "N'" + cboNhom.Text + "')";
 
             try
@@ -282,7 +284,7 @@ namespace WindowsFormsApplication1
             if (!KiemTraThongTin())
                 return;
 
-            if (btnThem.Enabled == true)
+            if (txtTaiKhoan.Enabled)
                 ThemTaiKhoan();
             else
                 SuaTaiKhoan();

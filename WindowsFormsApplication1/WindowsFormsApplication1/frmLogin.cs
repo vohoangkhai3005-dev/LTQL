@@ -8,6 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using System.Security.Cryptography;
+
+
 namespace WindowsFormsApplication1
 {
     public partial class frmLogin : Form
@@ -48,9 +51,31 @@ namespace WindowsFormsApplication1
             
             if (kiemtrathongtin())
             {
-                //kn csdl
+                /// Kết nối CSDL
                 HAMXULY.Connect();
-                string TAIKHOANG = txtTDN.Text.Trim(), MATKHAU = txtMK.Text.Trim();
+
+                string TAIKHOANG = txtTDN.Text.Trim();
+                string MATKHAU = txtMK.Text.Trim();
+
+                // Kiểm tra tài khoản trước
+                string sqlKT = "SELECT * FROM TAIKHOAN WHERE TAIKHOANG = '" + TAIKHOANG + "'";
+                DataTable dtKT = new DataTable();
+
+                string mkDB = "";
+
+                if (HAMXULY.Truyvan(sqlKT, dtKT))
+                {
+                    mkDB = dtKT.Rows[0]["MATKHAU"].ToString().Trim();
+                    // kiểm tra đã mã hóa chx
+
+                    //MessageBox.Show("Mật khẩu trong DB:\n" + mkDB);
+
+                    // Nếu mật khẩu đã mã hóa SHA256
+                    if (mkDB.Length == 64)
+                    {
+                        MATKHAU = HAMXULY.MaHoaSHA256(MATKHAU);
+                    }
+                }
                 string sql1 = "SELECT * FROM TAIKHOAN WHERE TAIKHOANG = '" + TAIKHOANG + "' AND MATKHAU = '" + MATKHAU + "'";
                 string sql2 = "SELECT * FROM TAIKHOAN WHERE TAIKHOANG = '" + TAIKHOANG + "' AND MATKHAU != '" + MATKHAU + "'";
                 DataTable dtlg = new DataTable();
@@ -67,6 +92,18 @@ namespace WindowsFormsApplication1
                         
 
                         HAMXULY.TaiKhoanDangNhap = TAIKHOANG;
+
+                        // Nếu mật khẩu cũ (chưa mã hóa) thì tự động mã hóa và cập nhật
+                        if (mkDB != "" && mkDB.Length != 64)
+                        {
+                            string hash = HAMXULY.MaHoaSHA256(txtMK.Text.Trim());
+
+                            string sqlUpdate = "UPDATE TAIKHOAN SET MATKHAU = '" + hash +
+                                               "' WHERE TAIKHOANG = '" + TAIKHOANG + "'";
+
+                            HAMXULY.RunSQL(sqlUpdate);
+                            mkDB = hash;
+                        }
 
                         NHOMQUYEN = dtlg.Rows[0]["NHOM"].ToString().Trim();
                         IDUSER = dtlg.Rows[0]["IDUSER"].ToString().Trim();
