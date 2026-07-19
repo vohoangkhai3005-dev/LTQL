@@ -72,11 +72,7 @@ namespace WindowsFormsApplication1
              get { return Mnlhd; }
              set { Mnlhd = value; }
          }
-         public ToolStripMenuItem MnCTHD
-         {
-             get { return Mncthd; }
-             set { Mncthd = value; }
-         }
+         
          public ToolStripMenuItem MnTK
          {
              get { return Mntk; }
@@ -122,7 +118,11 @@ namespace WindowsFormsApplication1
             get { return MnPhieuNhap; }
             set { MnPhieuNhap = value; }
         }
-
+          public ToolStripMenuItem MnCTPN
+          {
+              get { return MnChitietPhieuNhap; }
+              set { MnChitietPhieuNhap = value; }
+          }
         private void đổiMậtToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmDoiMK f = new frmDoiMK();

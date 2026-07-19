@@ -122,7 +122,7 @@ namespace WindowsFormsApplication1
                         frmM.MnNV.Enabled = true;
 
                         frmM.MnHD.Enabled = true;
-                        frmM.MnCTHD.Enabled = true;
+                        //frmM.MnCTHD.Enabled = true;
                         frmM.MnLHD.Enabled = true;
 
                         frmM.MnTK.Enabled = true;
@@ -136,6 +136,7 @@ namespace WindowsFormsApplication1
 
                         frmM.MnQP.Enabled = true;
                         frmM.MnPNK.Enabled = true;
+                        frmM.MnCTPN.Enabled = true;
 
                         frmM.Show();
                         this.Hide();
@@ -188,10 +189,10 @@ namespace WindowsFormsApplication1
                                      frmM.MnLHD.Enabled = true;
                                 }
 
-                                if (row["IDCN"].ToString().Trim() == "8")
-                                {
-                                    frmM.MnCTHD.Enabled = true;
-                                }
+                               // if (row["IDCN"].ToString().Trim() == "8")
+                               // {
+                                //    frmM.MnCTHD.Enabled = true;
+                               // }
 
                                 if (row["IDCN"].ToString().Trim() == "9")
                                 {
@@ -226,12 +227,12 @@ namespace WindowsFormsApplication1
                                 // Giữ nguyên những menu chưa có trong bảng CHUCNANG
                                 if (row["IDCN"].ToString().Trim() == "15")
                                 {
-                                    frmM.MnHethong.Enabled = true;
+                                    frmM.MnPNK.Enabled = true;
                                 }
 
                                 if (row["IDCN"].ToString().Trim() == "16")
                                 {
-                                    frmM.MnCL.Enabled = true;
+                                    frmM.MnCTPN.Enabled = true;
                                 }
 
                                 if (row["IDCN"].ToString().Trim() == "17")
