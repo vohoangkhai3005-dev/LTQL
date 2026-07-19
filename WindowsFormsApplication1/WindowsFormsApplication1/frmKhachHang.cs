@@ -55,8 +55,8 @@ namespace WindowsFormsApplication1
                 Luoi_KHACHHANG.Columns[4].HeaderText = "Email";
                 Luoi_KHACHHANG.Columns[4].Width = 180;
 
-                Luoi_KHACHHANG.Columns[5].HeaderText = "Điểm Tích Lũy";
-                Luoi_KHACHHANG.Columns[5].Width = 70;
+                //Luoi_KHACHHANG.Columns[5].HeaderText = "Điểm Tích Lũy";
+                //Luoi_KHACHHANG.Columns[5].Width = 70;
 
                 Luoi_KHACHHANG.EnableHeadersVisualStyles = false;
                 Luoi_KHACHHANG.ColumnHeadersDefaultCellStyle.BackColor = Color.Cyan;
@@ -67,10 +67,10 @@ namespace WindowsFormsApplication1
             txtMKH.Text = Luoi_KHACHHANG.CurrentRow.Cells["MAKH"].Value.ToString();
             txtTKH.Text = Luoi_KHACHHANG.CurrentRow.Cells["TENKH"].Value.ToString();
             txtDC.Text = Luoi_KHACHHANG.CurrentRow.Cells["DIACHI"].Value.ToString();
-            txtDT.Text = Luoi_KHACHHANG.CurrentRow.Cells["DIENTHOAI"].Value.ToString();
+            txtDT.Text = Luoi_KHACHHANG.CurrentRow.Cells["SDT"].Value.ToString();
             txtEmail.Text = Luoi_KHACHHANG.CurrentRow.Cells["EMAIL"].Value.ToString();
 
-            lblDiemTL.Text = Luoi_KHACHHANG.CurrentRow.Cells["DIEMTICHLUY"].Value.ToString();
+            
         }
         private void ThemKhachHang()
         {
@@ -162,7 +162,7 @@ namespace WindowsFormsApplication1
             panelKHACHHANG.Enabled = true;
 
             ResetText();
-            lblDiemTL.Text = "0";
+            
             txtMKH.Focus();
 
             btnThem.Enabled = false;
@@ -294,7 +294,7 @@ namespace WindowsFormsApplication1
             txtDT.Text = "";
             txtEmail.Text = "";
 
-            lblDiemTL.Text = "0";
+           
         }
 
         private void btnThoat_Click(object sender, EventArgs e)

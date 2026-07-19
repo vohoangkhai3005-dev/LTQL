@@ -22,9 +22,9 @@ namespace WindowsFormsApplication1
         public static void Connect()
         {
             conn = new SqlConnection();
-            conn.ConnectionString = @"Data Source=DESKTOP-NA08D0R\SQLEXPRESS;Initial Catalog=QLBH;User ID=sa;Password=123456";
+            //conn.ConnectionString = @"Data Source=DESKTOP-NA08D0R\SQLEXPRESS;Initial Catalog=QLBH;User ID=sa;Password=123456";
             //conn.ConnectionString = @"Data Source=2C01\SQLEXPRESS;Initial Catalog=QLBH;User ID=sa;Password=123456";
-            //conn.ConnectionString = @"Data Source=KHAI\KHAI;Initial Catalog=QLBH;User ID=sa;Password=123456";
+            conn.ConnectionString = @"Data Source=KHAI\KHAI;Initial Catalog=QLBH;User ID=sa;Password=123456";
             conn.Open();// mở kết nối
         }
         public static void DisConnect()

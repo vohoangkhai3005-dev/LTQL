@@ -366,5 +366,10 @@ namespace WindowsFormsApplication1
             btnSua.Enabled = true;
             pnlCTPN.Enabled = false;
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
